@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AupetsServer", "AupetsServer\AupetsServer.csproj", "{7ED0A838-E5BD-4D95-B8F9-1D2D9D951651}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{E8C6A42D-335C-432B-A592-04B48F84FDB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{854555D1-A9E7-44C4-AD50-FE82A6790F75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{7ED0A838-E5BD-4D95-B8F9-1D2D9D951651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ED0A838-E5BD-4D95-B8F9-1D2D9D951651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ED0A838-E5BD-4D95-B8F9-1D2D9D951651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C6A42D-335C-432B-A592-04B48F84FDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C6A42D-335C-432B-A592-04B48F84FDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C6A42D-335C-432B-A592-04B48F84FDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C6A42D-335C-432B-A592-04B48F84FDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854555D1-A9E7-44C4-AD50-FE82A6790F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854555D1-A9E7-44C4-AD50-FE82A6790F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854555D1-A9E7-44C4-AD50-FE82A6790F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854555D1-A9E7-44C4-AD50-FE82A6790F75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
