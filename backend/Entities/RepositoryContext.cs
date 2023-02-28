@@ -9,8 +9,12 @@ namespace Entities
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {
         }
-
-        public DbSet<Placeholder> Placeholders { get; set; }
+        
+        public DbSet<Usuario>Usuarios { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<Especie> Especies { get; set; }
+        public DbSet<Especializacao> Especializacoes { get; set; }
+        public DbSet<Atuacao> Atuacoes { get; set; }
 
     }
 }

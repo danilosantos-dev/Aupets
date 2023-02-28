@@ -3,13 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
-    [Table("placeholder")]
-    public class Placeholder
+    [Table("Status")]
+    public class Status
     {
         [Key]
-        public Guid PlaceholderId { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
-        public DateTime DateCreated { get; set; }
+        [StringLength(255)]
+        public string Nome { get; set; }
     }
 }
