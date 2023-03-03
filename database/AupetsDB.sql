@@ -3,37 +3,37 @@ USE AUpets;
 
 CREATE TABLE Usuario 
 (
-	Id  			INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	Id  			VARCHAR(300) NOT NULL PRIMARY KEY,
     NomeUsuario		VARCHAR(40) NOT NULL ,
     SenhaUsuario 	VARCHAR(200) NOT NULL,
     SenhaHash       VARCHAR(200) NOT NULL,
     EmailUsuario	VARCHAR(100) NOT NULL,
-    ImagemUsuario 	VARCHAR(200)
+    ImagemUsuario 	VARCHAR(400)
 );
 
 CREATE TABLE Status 
 (
 	Id 				INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Nome 			VARCHAR(255)
+    Nome 			VARCHAR(100) NOT NULL
 );
 
 
 CREATE TABLE Especie 
 (
 	Id 				TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Nome			VARCHAR(30)
+    Nome			VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Especializacao 
 (
 	Id 					SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Nome				VARCHAR(255)
+    Nome				VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Atuacao 
 (
 	Id 					SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Nome				VARCHAR(255)
+    Nome				VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Prestador 
@@ -48,15 +48,15 @@ CREATE TABLE Prestador
     Bairro 				VARCHAR(255) NOT NULL,
     Cidade 				VARCHAR(255) NOT NULL,
     Cep					CHAR(9),
-    Numero				VARCHAR(10) NOT NULL,
+    Numero				VARCHAR(6) NOT NULL,
     Atuacao				VARCHAR(100),
 	Especializacao		VARCHAR(100) NOT NULL,
-    Imagem				VARCHAR(200),
+    Imagem				VARCHAR(400),
     UrlSite				VARCHAR(100),
     StatusId			INT UNSIGNED NOT NULL,
+    UsuarioId           VARCHAR(300) NOT NULL,
 	CONSTRAINT FK_Prestador_Status	FOREIGN KEY (StatusId)	
 		REFERENCES Status(Id),
-    UsuarioId           INT UNSIGNED NOT NULL,
     CONSTRAINT FK_Prestador_Usuario FOREIGN KEY (UsuarioId)
         REFERENCES Usuario(Id)
 );
@@ -66,9 +66,9 @@ CREATE TABLE Avaliacoes
 	Id					INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	ReviewText			VARCHAR(2000),
     ReviewDate			DATETIME NOT NULL,
-    Image 				VARCHAR(200),
+    Image 				VARCHAR(400),
     Rating 				TINYINT UNSIGNED NOT NULL,
-    UsuarioId			INT UNSIGNED NOT NULL,
+    UsuarioId			VARCHAR(300) NOT NULL,
     PrestadorId			INT UNSIGNED NOT NULL,
     CONSTRAINT FK_Avaliacoes_Usuario	FOREIGN KEY (UsuarioId)	
 		REFERENCES Usuario(Id),

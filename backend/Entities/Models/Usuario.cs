@@ -7,7 +7,7 @@ namespace Entities.Models
     public class Usuario
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(40)]

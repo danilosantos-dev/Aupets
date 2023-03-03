@@ -7,9 +7,10 @@ namespace Entities.Models
     public class Atuacao
     {
         [Key]
-        public int Id { get; set; }
+        public Int16 Id { get; set; }
 
-        [StringLength(255)]
+        [Required]
+        [StringLength(100)]
         public string Nome { get; set; }
     }
 }

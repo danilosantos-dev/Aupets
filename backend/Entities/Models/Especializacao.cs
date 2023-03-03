@@ -7,10 +7,10 @@ namespace Entities.Models
     public class Especializacao
     {
         [Key]
-        public int Id { get; set; }
+        public Int16 Id { get; set; }
 
         [Required]
         [StringLength(255)]
-        public int Nome { get; set; }
+        public string Nome { get; set; }
     }
 }

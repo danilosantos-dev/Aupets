@@ -7,10 +7,10 @@ namespace Entities.Models
     public class Status
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        [StringLength(255)]
+        [StringLength(100)]
         public string Nome { get; set; }
     }
 }

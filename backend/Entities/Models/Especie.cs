@@ -7,9 +7,10 @@ namespace Entities.Models
     public class Especie
     {
         [Key]
-        public int Id { get; set; }
+        public byte Id { get; set; }
 
-        [StringLength(20)]
+        [Required]
+        [StringLength(30)]
         public string Nome { get; set; }
     }
 }
