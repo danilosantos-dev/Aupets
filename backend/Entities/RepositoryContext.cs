@@ -9,8 +9,8 @@ namespace Entities
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {
         }
-        
-        public DbSet<Usuario>Usuarios { get; set; }
+
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<Especie> Especies { get; set; }
         public DbSet<Especializacao> Especializacoes { get; set; }
@@ -20,5 +20,39 @@ namespace Entities
         public DbSet<EspecializacaoPrestador> EspecializacaoPrestadores { get; set; }
         public DbSet<AtuacaoPrestador> AtuacaoPrestadores { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            #region Many to Many - EspecializacaoPrestador
+            builder.Entity<EspecializacaoPrestador>().HasKey(
+                ep => new { ep.EspecializacaoId, ep.PrestadorId }
+            );
+            builder.Entity<EspecializacaoPrestador>()
+                .HasOne(ep => ep.Prestador)
+                .WithMany(e => e.Especializacoes)
+                .HasForeignKey(ep => ep.PrestadorId);
+
+            builder.Entity<EspecializacaoPrestador>()
+                .HasOne(ep => ep.Especializacao)
+                .WithMany(p => p.Prestadores)
+                .HasForeignKey(ep => ep.EspecializacaoId);
+            #endregion
+
+            #region Many to Many - AtuacaoPrestador
+            builder.Entity<AtuacaoPrestador>().HasKey(
+                ap => new { ap.AtuacaoId, ap.PrestadorId }
+            );
+            builder.Entity<AtuacaoPrestador>()
+                .HasOne(ap => ap.Prestador)
+                .WithMany(a => a.Atuacoes)
+                .HasForeignKey(ap => ap.PrestadorId);
+
+            builder.Entity<AtuacaoPrestador>()
+                .HasOne(ap => ap.Atuacao)
+                .WithMany(p => p.Prestadores)
+                .HasForeignKey(ap => ap.AtuacaoId);
+            #endregion
+        }
     }
 }

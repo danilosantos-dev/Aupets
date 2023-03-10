@@ -12,5 +12,7 @@ namespace Entities.Models
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
+
+        public ICollection<AtuacaoPrestador> Prestadores { get; set; }
     }
 }
