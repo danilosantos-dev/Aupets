@@ -8,7 +8,8 @@ CREATE TABLE Usuario
     SenhaUsuario 	VARCHAR(200) NOT NULL,
     SenhaHash       VARCHAR(200) NOT NULL,
     EmailUsuario	VARCHAR(100) NOT NULL,
-    ImagemUsuario 	VARCHAR(400)
+    ImagemUsuario 	VARCHAR(400),
+    EAdmin          TINYINT(1) NOT NULL
 );
 
 CREATE TABLE Status 

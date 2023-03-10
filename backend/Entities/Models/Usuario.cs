@@ -27,5 +27,8 @@ namespace Entities.Models
 
         [StringLength(400)]
         public string Imagem { get; set; }
+
+        [Required]
+        public bool EAdmin { get; set; }
     }
 }
