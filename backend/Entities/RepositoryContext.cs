@@ -65,7 +65,7 @@ namespace Entities
                     SenhaHash = hash.GetHashCode().ToString(),
                     Email = "lucas.santos@admin.admin",
                     Imagem = "",
-                    Eadmin = true
+                    EAdmin = true
                 }
             );
             #endregion
