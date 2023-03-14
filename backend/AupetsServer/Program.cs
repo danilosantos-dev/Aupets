@@ -1,7 +1,7 @@
 using NLog;
 using AupetsServer.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
-
+using Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 

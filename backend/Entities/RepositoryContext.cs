@@ -67,7 +67,7 @@ namespace Entities
                     Imagem = "",
                     EAdmin = true
                 }
-            );
+            ); 
             #endregion
         }
     }
