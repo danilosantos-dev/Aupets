@@ -2,6 +2,7 @@ using Contracts;
 using LoggerService;
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Repository;
 
 namespace AupetsServer.Extensions;
 public static class ServiceExtensions
@@ -36,5 +37,10 @@ public static class ServiceExtensions
         var serverVersion = ServerVersion.AutoDetect(conn);
         services.AddDbContext<RepositoryContext>(
             o => o.UseMySql(conn, serverVersion));
+    }
+
+    public static void ConfigureRepositoryWrapper(this IServiceCollection services)
+    {
+        services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
     }
 }
