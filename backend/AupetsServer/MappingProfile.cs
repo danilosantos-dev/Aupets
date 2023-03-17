@@ -9,6 +9,7 @@ namespace AupetsServer
         public MappingProfile()
         {
             CreateMap<Usuario, UsuarioDto>();
+            CreateMap<Status, StatusDto>();
         }        
     }
 }

@@ -1,5 +1,7 @@
 using Contracts;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using Entities.DataTransferObjects;
 
 namespace AupetsServer.Controllers
 {
@@ -9,11 +11,13 @@ namespace AupetsServer.Controllers
     {
         private ILoggerManager _logger;
         private IRepositoryWrapper _repository;
+        private IMapper _mapper;
 
-        public StatusController(ILoggerManager logger, IRepositoryWrapper repository)
+        public StatusController(ILoggerManager logger, IRepositoryWrapper repository, IMapper mapper)
         {
             _logger = logger;
             _repository = repository;
+            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult GetAllStatus()
@@ -22,7 +26,9 @@ namespace AupetsServer.Controllers
             {
                 var status = _repository.Status.GetAllStatus();
                 _logger.LogInfo($"Retornando todos os status do banco de dados. ");
-                return Ok(status);
+                
+                var statusResult = _mapper.Map<IEnumerable<StatusDto>>(status);
+                return Ok(statusResult);
             }
             catch (Exception ex)
             {

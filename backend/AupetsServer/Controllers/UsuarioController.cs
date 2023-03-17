@@ -39,7 +39,31 @@ namespace AupetsServer.Controllers
             }
         }
 
-        
+        [HttpGet("{id}")]
+        public IActionResult GetUsuarioById(Guid id)
+        {
+            try 
+            {
+                var usuario = _repository.Usuario.GetUsuarioById(id);
+                if(usuario is null)
+                {
+                    _logger.LogError($"Usuario com Id: {id}, não encontrado");
+                    return NotFound();
+                }
+                else 
+                {
+                    _logger.LogInfo($"Retornando o usuario com Id: {id}");
+
+                    var usuarioResult = _mapper.Map<UsuarioDto>(usuario);
+                    return Ok(usuarioResult);
+                }
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"Ocorreu um erro no método GetUsuarioId: {ex.Message}");
+                return StatusCode(500, "Erro Interno do Servidor");
+            }
+        }
         
      
     }
