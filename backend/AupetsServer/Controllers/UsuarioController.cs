@@ -1,5 +1,7 @@
 using Contracts;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using Entities.DataTransferObjects;
 
 
 namespace AupetsServer.Controllers
@@ -10,11 +12,13 @@ namespace AupetsServer.Controllers
     {
         private ILoggerManager _logger;
         private IRepositoryWrapper _repository;
+        private IMapper _mapper;
 
-        public UsuarioController(ILoggerManager logger, IRepositoryWrapper repository)
+        public UsuarioController(ILoggerManager logger, IRepositoryWrapper repository, IMapper mapper)
         {
             _logger = logger;
             _repository = repository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -24,7 +28,9 @@ namespace AupetsServer.Controllers
             {
                 var usuarios = _repository.Usuario.GetAllUsuarios();
                 _logger.LogInfo($"Retornando todos os usuarios do banco de dados. ");
-                return Ok(usuarios);
+
+                var usuarioResult = _mapper.Map<IEnumerable<UsuarioDto>>(usuarios);
+                return Ok(usuarioResult);
             }
             catch (Exception ex)
             {
@@ -33,6 +39,9 @@ namespace AupetsServer.Controllers
             }
         }
 
+        
+        
      
     }
 }
+

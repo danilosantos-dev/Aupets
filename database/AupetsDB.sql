@@ -4,11 +4,11 @@ USE AUpets;
 CREATE TABLE Usuario 
 (
 	Id  			VARCHAR(300) NOT NULL PRIMARY KEY,
-    NomeUsuario		VARCHAR(40) NOT NULL ,
-    SenhaUsuario 	VARCHAR(200) NOT NULL,
-    SenhaHash       VARCHAR(200) NOT NULL,
-    EmailUsuario	VARCHAR(100) NOT NULL,
-    ImagemUsuario 	VARCHAR(400),
+    Nome        	VARCHAR(40) NOT NULL ,
+    Senha        	VARCHAR(200) NOT NULL,
+    Senha           VARCHAR(200) NOT NULL,
+    Email       	VARCHAR(100) NOT NULL,
+    Imagem       	VARCHAR(400),
     EAdmin          TINYINT(1) NOT NULL
 );
 
