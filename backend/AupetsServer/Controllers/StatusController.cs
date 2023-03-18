@@ -37,6 +37,31 @@ namespace AupetsServer.Controllers
             }
         }
 
-        
+        [HttpGet("{id}")]
+        public IActionResult GetStatusById(int id) 
+        {
+            try
+            {
+                var status = _repository.Status.GetStatusById(id);
+
+                if (status is null)
+                {
+                    _logger.LogError($"Status com Id: {id}, não encontrado.");
+                    return NotFound();
+                }
+                else
+                {
+                    _logger.LogInfo($"Retornando o status com Id: {id}.")
+
+                    var statusResult = _mapper.Map<StatusDto>(status);
+                    return Ok(statusResult);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Ocorreu um erro no mpetodo GetStatusById: {ex.Message}");
+                return StatusCode(500, "Erro Interno do Servidor");
+            }
+        }
     }
 }

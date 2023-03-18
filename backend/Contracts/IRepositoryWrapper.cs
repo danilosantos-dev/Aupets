@@ -11,4 +11,6 @@ public interface IRepositoryWrapper
     IPrestadorRepository Prestador { get; }
     IStatusRepository Status { get; }
     IUsuarioRepository Usuario { get; }
+
+    void Save();
 }

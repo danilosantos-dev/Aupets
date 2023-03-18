@@ -2,14 +2,15 @@ using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Models;
 
-namespace AupetsServer
+namespace AupetsServer;
+public class MappingProfile : Profile
 {
-    public class MappingProfile : Profile
+    public MappingProfile()
     {
-        public MappingProfile()
-        {
-            CreateMap<Usuario, UsuarioDto>();
-            CreateMap<Status, StatusDto>();
-        }        
-    }
+        CreateMap<Usuario, UsuarioDto>();
+
+        CreateMap<Status, StatusDto>();
+
+        CreateMap<UsuarioForCreationDto, Usuario>();
+    }        
 }

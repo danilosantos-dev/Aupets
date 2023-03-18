@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities;
 using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository;
 public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
@@ -20,5 +21,15 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
     {
         return FindByCondition(usuario => usuario.Id.Equals(usuarioId))
             .FirstOrDefault();
+    }
+
+    public void CreateUsuario(Usuario usuario)
+    {
+        Create(usuario);
+    }
+
+    public void UpdateUsuario(Usuario usuario)
+    {
+        Update(usuario);
     }
 }

@@ -14,4 +14,10 @@ public class StatusRepository : RepositoryBase<Status>, IStatusRepository
             .OrderBy(sts => sts.Nome)
             .ToList();
     }
+
+    public Status GetStatusById(int statusId)
+    {
+        return FindByCondition(status => status.Id.Equals(statusId))
+            .FirstOrDefault();
+    }
 }
