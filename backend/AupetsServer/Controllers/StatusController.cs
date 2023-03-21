@@ -51,7 +51,7 @@ namespace AupetsServer.Controllers
                 }
                 else
                 {
-                    _logger.LogInfo($"Retornando o status com Id: {id}.")
+                    _logger.LogInfo($"Retornando o status com Id: {id}.");
 
                     var statusResult = _mapper.Map<StatusDto>(status);
                     return Ok(statusResult);

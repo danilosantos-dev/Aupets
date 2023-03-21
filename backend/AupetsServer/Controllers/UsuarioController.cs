@@ -4,6 +4,7 @@ using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.AspNetCore.Identity;
 
 namespace AupetsServer.Controllers
 {
@@ -25,6 +26,21 @@ namespace AupetsServer.Controllers
         [HttpGet]
         public IActionResult GetAllUsuarios()
         {
+            // Esse codigo está forçando  o seed de um administrador
+            var userId = Guid.NewGuid();
+            var hash = new PasswordHasher<Usuario>();
+            var usuario = new Usuario()
+            {
+                Id = userId,
+                Nome = "Lucas Santos de Oliveira",
+                Senha = hash.HashPassword(null, "123456"),
+                SenhaHash = hash.GetHashCode().ToString(),
+                Email = "lucas.santos@admin.admin",
+                EAdmin = true
+            };
+            _repository.Usuario.CreateUsuario(usuario);
+            _repository.Save();
+            
             try
             {
                 var usuarios = _repository.Usuario.GetAllUsuarios();
@@ -43,15 +59,15 @@ namespace AupetsServer.Controllers
         [HttpGet("{id}")]
         public IActionResult GetUsuarioById(Guid id)
         {
-            try 
+            try
             {
                 var usuario = _repository.Usuario.GetUsuarioById(id);
-                if(usuario is null)
+                if (usuario is null)
                 {
                     _logger.LogError($"Usuario com Id: {id}, não encontrado");
                     return NotFound();
                 }
-                else 
+                else
                 {
                     _logger.LogInfo($"Retornando o usuario com Id: {id}");
 
@@ -59,7 +75,7 @@ namespace AupetsServer.Controllers
                     return Ok(usuarioResult);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"Ocorreu um erro no método GetUsuarioId: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
