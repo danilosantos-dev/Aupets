@@ -56,7 +56,7 @@ namespace AupetsServer.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "UsuarioById") ]
         public IActionResult GetUsuarioById(Guid id)
         {
             try

@@ -7,4 +7,5 @@ public interface IUsuarioRepository : IRepositoryBase<Usuario>
     Usuario GetUsuarioById(Guid usuarioId);
     void CreateUsuario(Usuario usuario);
     void UpdateUsuario(Usuario usuario);
+    void DeleteUsuario(Usuario usuario);
 }

@@ -32,4 +32,10 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
     {
         Update(usuario);
     }
+
+    public void DeleteUsuario(Usuario usuario)
+    {
+        Delete(usuario);
+    }
+
 }
