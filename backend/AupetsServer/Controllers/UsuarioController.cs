@@ -116,7 +116,7 @@ namespace AupetsServer.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateUsuario(Guid id, [FromBody] UsuarioDto usuario)
+        public IActionResult UpdateUsuario(Guid id, [FromBody] UsuarioForUpdateDto usuario)
         {
             try
             {

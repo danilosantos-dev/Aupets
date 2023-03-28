@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities;
 using Entities.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repository;
@@ -25,6 +26,9 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
 
     public void CreateUsuario(Usuario usuario)
     {
+        var hash = new PasswordHasher<Usuario>();
+        usuario.Senha = hash.HashPassword(null, usuario.Senha);
+        usuario.SenhaHash = hash.GetHashCode().ToString();
         Create(usuario);
     }
 
