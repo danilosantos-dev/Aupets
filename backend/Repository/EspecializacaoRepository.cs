@@ -8,4 +8,13 @@ public class EspecializacaoRepository : RepositoryBase<Especializacao>, IEspecia
     public EspecializacaoRepository(RepositoryContext repositoryContext) : base(repositoryContext)
     {
     }
+
+    public IEnumerable<Especializacao> GetAllEspecializacao()
+    {
+        return FindAll()
+            .OrderBy(espe => espe.Nome)
+            .ToList();
+    }
+
+ 
 }

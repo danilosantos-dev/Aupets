@@ -9,10 +9,12 @@ public class MappingProfile : Profile
     {
         CreateMap<Usuario, UsuarioDto>();
 
-        CreateMap<Status, StatusDto>();
-
         CreateMap<UsuarioForCreationDto, Usuario>();
 
         CreateMap<UsuarioForUpdateDto, Usuario>();
+
+        CreateMap<Status, StatusDto>();
+
+        CreateMap<Especie, EspecieDto>();
     }        
 }
