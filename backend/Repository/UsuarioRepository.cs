@@ -42,4 +42,21 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
         Delete(usuario);
     }
 
+    public Usuario GetByEmail(string email)
+    {
+        return FindByCondition(usuario => usuario.Email.Equals(email))
+            .FirstOrDefault();
+    }
+
+    public bool Login(string email, string senha)
+    {
+        var usuario = GetByEmail(email);
+        if(usuario == null)
+        {
+            return false;
+        }
+        var hash = new PasswordHasher<Usuario>();
+        //var hashedPassword = hash.HashPassword(null, )
+        return hash.VerifyHashedPassword(usuario, usuario.SenhaHash, senha) == PasswordVerificationResult.Success;
+    }
 }
