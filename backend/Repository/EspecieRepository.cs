@@ -15,4 +15,24 @@ public class EspecieRepository : RepositoryBase<Especie>, IEspecieRepository
             .OrderBy(esp => esp.Nome)
             .ToList();
     }
+
+     public Especie GetEspecieById(byte especieId)
+    {
+        return FindByCondition(especie => especie.Id.Equals(especieId))
+            .FirstOrDefault();
+    }
+    public void CreateEspecie(Especie especie)
+    {
+        Create(especie);
+    }
+
+    public void DeleteEspecie(Especie especie)
+    {
+        Delete(especie);
+    }
+    
+    public void UpdateEspecie(Especie especie)
+    {
+        Update(especie);
+    }
 }

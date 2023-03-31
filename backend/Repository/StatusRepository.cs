@@ -8,6 +8,7 @@ public class StatusRepository : RepositoryBase<Status>, IStatusRepository
     public StatusRepository(RepositoryContext repositoryContext) : base(repositoryContext)
     {
     }
+
     public IEnumerable<Status> GetAllStatus()
     {
         return FindAll()
@@ -19,5 +20,20 @@ public class StatusRepository : RepositoryBase<Status>, IStatusRepository
     {
         return FindByCondition(status => status.Id.Equals(statusId))
             .FirstOrDefault();
+    }
+
+    public void CreateStatus(Status status)
+    {
+        Create(status);
+    }
+
+    public void DeleteStatus(Status status)
+    {
+        Delete(status);
+    }
+
+    public void UpdateStatus(Status status)
+    {
+        Update(status);
     }
 }

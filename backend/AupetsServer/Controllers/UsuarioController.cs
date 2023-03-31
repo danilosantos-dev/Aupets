@@ -152,6 +152,29 @@ namespace AupetsServer.Controllers
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUsuario(Guid id)
+        {
+            try
+            {
+                var usuario = _repository.Usuario.GetUsuarioById(id);
+                if (usuario == null)
+                {
+                    _logger.LogError($"Usuario com Id: {id}, não encontrado.");
+                    return NotFound();
+                }
+               
+                _repository.Usuario.DeleteUsuario(usuario);
+                _repository.Save();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Ocorreu um erro no método DeleteUsuario: {ex.Message}");
+                return StatusCode(500, "Erro Interno do Servidor");
+            }
+        }
     }
 }
 

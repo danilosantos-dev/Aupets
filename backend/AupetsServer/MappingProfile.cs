@@ -15,6 +15,14 @@ public class MappingProfile : Profile
 
         CreateMap<Status, StatusDto>();
 
+        CreateMap<StatusForCreationDto, Status>();
+
+        CreateMap<StatusForUpdateDto, Status>();
+
         CreateMap<Especie, EspecieDto>();
+
+        CreateMap<EspecieForCreationDto, Especie>();
+
+        CreateMap<EspecieForUpdateDto, Especie>();
     }        
 }
