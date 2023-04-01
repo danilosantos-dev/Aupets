@@ -5,6 +5,7 @@ using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
 
 namespace AupetsServer.Controllers
 {
@@ -40,7 +41,7 @@ namespace AupetsServer.Controllers
             };
             _repository.Usuario.CreateUsuario(usuario);
             _repository.Save();
-            
+
             try
             {
                 var usuarios = _repository.Usuario.GetAllUsuarios();
@@ -98,8 +99,8 @@ namespace AupetsServer.Controllers
                     _logger.LogError("Objeto Usuario enviado é inválido.");
                     return BadRequest("Objeto de modelo inválido");
                 }
-                
-                if( _repository.Usuario.GetByEmail(usuario.Email) != null)
+
+                if (_repository.Usuario.GetByEmail(usuario.Email) != null)
                 {
                     _logger.LogError("O Email já foi cadastrado.");
                     return Conflict("Email já cadastrado");
@@ -159,7 +160,6 @@ namespace AupetsServer.Controllers
             }
         }
 
-<<<<<<< Updated upstream
         [HttpDelete("{id}")]
         public IActionResult DeleteUsuario(Guid id)
         {
@@ -171,7 +171,7 @@ namespace AupetsServer.Controllers
                     _logger.LogError($"Usuario com Id: {id}, não encontrado.");
                     return NotFound();
                 }
-               
+
                 _repository.Usuario.DeleteUsuario(usuario);
                 _repository.Save();
                 return NoContent();
@@ -179,26 +179,28 @@ namespace AupetsServer.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Ocorreu um erro no método DeleteUsuario: {ex.Message}");
-=======
+                return StatusCode(500, "Erro Interno do Servidor");
+            }
+        }
+
         [HttpPost("{login}", Name = "Login")]
         public IActionResult Login([FromBody] LoginDto usuario)
         {
             try
             {
-                if(!_repository.Usuario.Login(usuario.Email, usuario.Senha))
+                if (!_repository.Usuario.Login(usuario.Email, usuario.Senha))
                 {
                     _logger.LogError("Ocorreu um erro no método de login");
                     return Forbid("Usuario ou senha inválidos.");
                 }
+                
                 return Ok();
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Ocorreu um erro no método Login: {ex.Message}");
->>>>>>> Stashed changes
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }
     }
 }
-

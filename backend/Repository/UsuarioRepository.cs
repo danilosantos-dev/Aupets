@@ -3,6 +3,7 @@ using Entities;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Repository;
 public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
@@ -56,7 +57,7 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
             return false;
         }
         var hash = new PasswordHasher<Usuario>();
-        //var hashedPassword = hash.HashPassword(null, )
         return hash.VerifyHashedPassword(usuario, usuario.SenhaHash, senha) == PasswordVerificationResult.Success;
+        
     }
 }

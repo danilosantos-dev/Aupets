@@ -24,5 +24,7 @@ public class MappingProfile : Profile
         CreateMap<EspecieForCreationDto, Especie>();
 
         CreateMap<EspecieForUpdateDto, Especie>();
+
+        CreateMap<LoginDto, Usuario>();
     }        
 }
