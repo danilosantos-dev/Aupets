@@ -60,13 +60,13 @@ namespace AupetsServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Ocorreu um erro no mpetodo GetStatusById: {ex.Message}");
+                _logger.LogError($"Ocorreu um erro no metodo GetStatusById: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }
 
         [HttpPost]
-        public IActionResult CreateStatus([FromBody] Status status)
+        public IActionResult CreateStatus([FromBody] StatusForCreationDto status)
         {
             try
             {

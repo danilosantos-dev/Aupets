@@ -62,13 +62,13 @@ namespace AupetsServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Ocorreu um erro no mpetodo GetEspecieById: {ex.Message}");
+                _logger.LogError($"Ocorreu um erro no metodo GetEspecieById: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }
 
         [HttpPost]
-        public IActionResult CreateEspecie([FromBody] Especie especie)
+        public IActionResult CreateEspecie([FromBody] EspecieForCreationDto especie)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace AupetsServer.Controllers
 
                 if (!ModelState.IsValid)
                 {
-                    _logger.LogError("Objeto Usuario enviado é inválido.");
+                    _logger.LogError("Objeto Especie enviado é inválido.");
                     return BadRequest("Objeto de modelo inválido");
                 }
 
@@ -95,7 +95,7 @@ namespace AupetsServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Ocorreu um erro no mpetodo CreateEspecie: {ex.Message}");
+                _logger.LogError($"Ocorreu um erro no metodo CreateEspecie: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }

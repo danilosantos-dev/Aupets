@@ -78,7 +78,7 @@ namespace AupetsServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Ocorreu um erro no método GetUsuarioId: {ex.Message}");
+                _logger.LogError($"Ocorreu um erro no método GetUsuarioById: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }
@@ -117,7 +117,7 @@ namespace AupetsServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Ocorreu um erro no mpetodo CreateUsuario: {ex.Message}");
+                _logger.LogError($"Ocorreu um erro no metodo CreateUsuario: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }

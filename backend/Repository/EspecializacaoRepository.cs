@@ -16,5 +16,24 @@ public class EspecializacaoRepository : RepositoryBase<Especializacao>, IEspecia
             .ToList();
     }
 
- 
+    public Especializacao GetEspecializacaoById(Int16 especializacaoId)
+    {
+        return FindByCondition(especializacao => especializacao.Id.Equals(especializacaoId))
+            .FirstOrDefault();
+    }
+
+    public void CreateEspecializacao(Especializacao especializacao)
+    {
+        Create(especializacao);
+    }
+
+    public void DeleteEspecializacao(Especializacao especializacao)
+    {
+        Delete(especializacao);
+    }
+
+    public void UpdateEspecializacao(Especializacao especializacao)
+    {
+        Update(especializacao);
+    }
 }
