@@ -1,6 +1,6 @@
 
 
-namespace Entities.DataTransferObjects.EspecializacaoDtos
+namespace Entities.DataTransferObjects
 {
     public class EspecializacaoDto
     {

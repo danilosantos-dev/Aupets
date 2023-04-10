@@ -1,7 +1,7 @@
 using Contracts;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using Entities.DataTransferObjects.EspecializacaoDtos;
+using Entities.DataTransferObjects;
 using Entities.Models;
 
 namespace AupetsServer.Controllers
@@ -95,7 +95,7 @@ namespace AupetsServer.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Ocorreu um erro no mpetodo CreateEspecializacao: {ex.Message}");
+                _logger.LogError($"Ocorreu um erro no metodo CreateEspecializacao: {ex.Message}");
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }

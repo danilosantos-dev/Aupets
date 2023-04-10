@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Entities.DataTransferObjects.EspecializacaoDtos
+namespace Entities.DataTransferObjects
 {
     public class EspecializacaoForUpdateDto
     {
