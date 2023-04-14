@@ -53,22 +53,6 @@ namespace Entities
                 .WithMany(p => p.Prestadores)
                 .HasForeignKey(ap => ap.AtuacaoId);
             #endregion
-
-            #region Seed User - Admin
-            var userId = Guid.NewGuid();
-            var hash = new PasswordHasher<Usuario>();
-            builder.Entity<Usuario>().HasData(
-                new Usuario(){
-                    Id = userId,
-                    Nome = "Lucas Santos de Oliveira",
-                    Senha = hash.HashPassword(null, "123456"),
-                    SenhaHash = hash.GetHashCode().ToString(),
-                    Email = "lucas.santos@admin.admin",
-                    Imagem = "",
-                    EAdmin = true
-                }
-            ); 
-            #endregion
         }
     }
 }

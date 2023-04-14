@@ -28,7 +28,7 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
     public void CreateUsuario(Usuario usuario)
     {
         var hash = new PasswordHasher<Usuario>();
-        usuario.Senha = hash.HashPassword(null, usuario.Senha);
+        usuario.Senha = hash.HashPassword(usuario, usuario.Senha);
         usuario.SenhaHash = hash.GetHashCode().ToString();
         Create(usuario);
     }
@@ -57,8 +57,7 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
             return false;
         }
         var hash = new PasswordHasher<Usuario>();
-        var x = hash.VerifyHashedPassword(null, usuario.SenhaHash, senha);
-        return x  == PasswordVerificationResult.Success;
-        
+        var x = hash.VerifyHashedPassword(usuario, usuario.Senha, senha) == PasswordVerificationResult.Success;
+        return x;
     }
 }

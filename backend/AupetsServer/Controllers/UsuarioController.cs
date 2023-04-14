@@ -27,21 +27,6 @@ namespace AupetsServer.Controllers
         [HttpGet]
         public IActionResult GetAllUsuarios()
         {
-            // Esse codigo está forçando  o seed de um administrador
-            var userId = Guid.NewGuid();
-            var hash = new PasswordHasher<Usuario>();
-            var usuario = new Usuario()
-            {
-                Id = userId,
-                Nome = "Lucas Santos de Oliveira",
-                Senha = hash.HashPassword(null, "123456"),
-                SenhaHash = hash.GetHashCode().ToString(),
-                Email = "lucas.santos@admin.admin",
-                EAdmin = true
-            };
-            _repository.Usuario.CreateUsuario(usuario);
-            _repository.Save();
-
             try
             {
                 var usuarios = _repository.Usuario.GetAllUsuarios();
@@ -191,7 +176,7 @@ namespace AupetsServer.Controllers
                 if (!_repository.Usuario.Login(usuario.Email, usuario.Senha))
                 {
                     _logger.LogError("Ocorreu um erro no método de login");
-                    return Ok("Usuario ou senha inválidos.");
+                    return BadRequest("Usuario ou senha inválidos.");
                 }
                 
                 return Ok();
