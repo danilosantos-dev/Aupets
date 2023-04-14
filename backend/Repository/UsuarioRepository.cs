@@ -57,7 +57,8 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
             return false;
         }
         var hash = new PasswordHasher<Usuario>();
-        return hash.VerifyHashedPassword(usuario, usuario.SenhaHash, senha) == PasswordVerificationResult.Success;
+        var x = hash.VerifyHashedPassword(null, usuario.SenhaHash, senha);
+        return x  == PasswordVerificationResult.Success;
         
     }
 }
