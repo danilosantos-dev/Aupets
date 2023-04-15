@@ -160,6 +160,5 @@ namespace AupetsServer.Controllers
                 return StatusCode(500, "Erro Interno do Servidor");
             }
         }
-
     }
 }
