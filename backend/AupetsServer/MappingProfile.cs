@@ -26,5 +26,11 @@ public class MappingProfile : Profile
         CreateMap<Atuacao, AtuacaoDto>();
         CreateMap<AtuacaoForCreationDto, Atuacao>();
         CreateMap<AtuacaoForUpdateDto, Atuacao>();
+
+        CreateMap<Prestador, PrestadorDto>();
+        CreateMap<PrestadorForCreationDto, Prestador>();
+        CreateMap<PrestadorForUpdateDto, Prestador>();
+
+        
     }        
 }
