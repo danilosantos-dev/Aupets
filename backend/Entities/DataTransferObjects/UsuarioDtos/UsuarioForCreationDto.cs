@@ -17,4 +17,5 @@ public class UsuarioForCreationDto
     [StringLength(30, ErrorMessage ="O email deve ter no maximo 30 caracteres")]
     public string Email { get; set; }
     public string Imagem { get; set; }
+    public bool EAdmin { get; set; }
 }
