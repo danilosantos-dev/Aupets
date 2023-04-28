@@ -27,11 +27,11 @@
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/css/styles.css",
+              "src/css_template/template.css",
               "src/styles.css"
             ],
             "scripts": [
-              "./src/js/scripts.js"
+              "./src/js/template.js"
             ]
           },
           "configurations": {
