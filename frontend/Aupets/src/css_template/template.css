@@ -91,7 +91,7 @@
   }
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: var(--bs-body-font-family);
@@ -638,7 +638,7 @@ progress {
 }
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
+    max-width: 1200px;
   }
 }
 @media (min-width: 1500px) {
@@ -10817,12 +10817,12 @@ p {
 }
 
 .page-section {
-  padding: 2rem 0;
+  padding: 4rem 0 ;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 
