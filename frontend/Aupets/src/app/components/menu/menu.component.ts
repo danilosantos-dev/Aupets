@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class MenuComponent {
   isCollapsed: boolean = false;
 
-  //scrool da pagina
-  scrollTo(element: any): void {
-    (document.getElementById(element) as HTMLElement)
-    .scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-  }
+  // //scrool da pagina
+  // scrollTo(element: any): void {
+  //   (document.getElementById(element) as HTMLElement)
+  //   .scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  // }
 
 }
