@@ -5,8 +5,9 @@
       <form>
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
+      <div class="input_box">
         <div class="form-floating form-item">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="email" class="form-control " id="floatingInput" placeholder="name@example.com">
           <label >Email </label>
         </div>
 
@@ -14,12 +15,16 @@
           <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
           <label for="floatingPassword">Password</label>
         </div>
+      </div>
 
         <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me"> Lembre de mim
           </label>
         </div>
+        
+        <p class="cadastro"> Não possui uma conta ? <a routerLink="/cadastro/usuario"><span>Cadastre-se</span></a></p>
+
         <button class="btn btn-lg btn-primary button" type="submit">Entrar</button>
         <p class="mt-5 mb-3 text-body-secondary">&copy; Aupets 2023</p>
       </form>
