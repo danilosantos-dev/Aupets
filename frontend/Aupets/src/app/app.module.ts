@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse'
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { CadastroUsuarioComponent } from './components/pages/cadastro-usuario/cadastro-usuario.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { PrestadorComponent } from './components/pages/prestador/prestador.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { AdminComponent } from './components/admin/admin.component';
     FooterComponent,
     LoginComponent,
     CadastroUsuarioComponent,
-    AdminComponent
+    AdminComponent,
+    PrestadorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
