@@ -14,6 +14,7 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { CadastroUsuarioComponent } from './components/pages/cadastro-usuario/cadastro-usuario.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PrestadorComponent } from './components/pages/prestador/prestador.component';
+import { CadastroPrestadorComponent } from './components/pages/cadastro-prestador/cadastro-prestador.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PrestadorComponent } from './components/pages/prestador/prestador.compo
     LoginComponent,
     CadastroUsuarioComponent,
     AdminComponent,
-    PrestadorComponent
+    PrestadorComponent,
+    CadastroPrestadorComponent
   ],
   imports: [
     BrowserModule,
