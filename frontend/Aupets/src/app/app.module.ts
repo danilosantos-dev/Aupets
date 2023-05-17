@@ -7,6 +7,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,6 +17,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { PrestadorComponent } from './components/pages/prestador/prestador.component';
 import { CadastroPrestadorComponent } from './components/pages/cadastro-prestador/cadastro-prestador.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
     AdminComponent,
     PrestadorComponent,
     CadastroPrestadorComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InternalServerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CollapseModule.forRoot(),
     CarouselModule.forRoot()
   ],
