@@ -15,6 +15,7 @@ import { CadastroUsuarioComponent } from './components/pages/cadastro-usuario/ca
 import { AdminComponent } from './components/admin/admin.component';
 import { PrestadorComponent } from './components/pages/prestador/prestador.component';
 import { CadastroPrestadorComponent } from './components/pages/cadastro-prestador/cadastro-prestador.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CadastroPrestadorComponent } from './components/pages/cadastro-prestado
     CadastroUsuarioComponent,
     AdminComponent,
     PrestadorComponent,
-    CadastroPrestadorComponent
+    CadastroPrestadorComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

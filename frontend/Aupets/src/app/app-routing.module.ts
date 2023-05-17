@@ -6,6 +6,7 @@ import { CadastroPrestadorComponent } from './components/pages/cadastro-prestado
 import { CadastroUsuarioComponent } from './components/pages/cadastro-usuario/cadastro-usuario.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { PrestadorComponent } from './components/pages/prestador/prestador.component';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'cadastro-prestador',component: CadastroPrestadorComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'prestador', component: PrestadorComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '404', component: NotFoundComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/404', pathMatch: 'full' }
 
 ];
 
