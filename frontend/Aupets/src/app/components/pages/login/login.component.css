@@ -43,8 +43,13 @@ h1{
   width: 100%;
 }
 
+.cadastro a {
+  text-decoration: none;
+}
+
 .cadastro span{
   font-weight: 500;
+  color: rgb(255, 255, 81);
 }
 
 @media (max-width: 510px) {
@@ -62,5 +67,5 @@ h1{
   .button{
     width: 200px;
   }
- 
+
 }

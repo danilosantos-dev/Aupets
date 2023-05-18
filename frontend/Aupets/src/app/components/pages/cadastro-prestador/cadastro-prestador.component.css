@@ -6,7 +6,7 @@
     width: 100%;
     background-color: rgb(230, 182, 9);
   }
-  
+
   h1{
     margin: 20px;
   }
@@ -28,18 +28,23 @@
   .form-signin{
     width: 80%;
   }
-  
+
   .form-item
   {
     margin-bottom: 20px;
     white-space: 100%;
   }
-  .button{
+  button{
     width: 100%;
   }
-  
+
+  .cadastro a {
+    text-decoration: none;
+  }
+
   .cadastro span{
     font-weight: 500;
+    color: rgb(255, 255, 81);
   }
   .select{
       width: 100%;
@@ -65,6 +70,5 @@
     .button{
       width: 200px;
     }
-   
+
   }
-  
