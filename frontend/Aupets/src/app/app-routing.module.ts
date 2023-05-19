@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
   { path: 'cadastro-prestador',component: CadastroPrestadorComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', loadChildren:()=> import('../app/modules/admin-module/admin-module.module')
+                    .then(m=>m.AdminModuleModule)},
   { path: 'prestador', component: PrestadorComponent },
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },

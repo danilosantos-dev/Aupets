@@ -18,6 +18,7 @@ import { PrestadorComponent } from './components/pages/prestador/prestador.compo
 import { CadastroPrestadorComponent } from './components/pages/cadastro-prestador/cadastro-prestador.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { AdminModuleModule } from './modules/admin-module/admin-module.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     BrowserAnimationsModule,
     HttpClientModule,
     CollapseModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    AdminModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
