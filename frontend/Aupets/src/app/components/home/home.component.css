@@ -57,3 +57,9 @@ header.masthead .masthead-heading {
   margin-bottom: 5rem;
   font-weight: 700;
 }
+
+.image-card{
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
