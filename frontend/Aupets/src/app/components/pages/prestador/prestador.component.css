@@ -18,3 +18,13 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.page-section {
+  padding: 4rem 0 ;
+}
+.page-section h2.section-heading, .page-section .section-heading.h2 {
+  font-size: 2.5rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  font-weight: 600;
+}
