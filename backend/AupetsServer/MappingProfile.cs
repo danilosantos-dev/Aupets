@@ -31,6 +31,9 @@ public class MappingProfile : Profile
         CreateMap<PrestadorForCreationDto, Prestador>();
         CreateMap<PrestadorForUpdateDto, Prestador>();
 
+        CreateMap<Avaliacoes, AvaliacaoDto>();
+        CreateMap<AvaliacaoForCreationDto, Avaliacoes>();
+        CreateMap<AvaliacaoForUpdateDto, Avaliacoes>();
         
     }        
 }
