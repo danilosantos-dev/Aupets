@@ -2,38 +2,47 @@
   <div class="text-center form">
     <main class="form-signin  m-auto" style="width: 400px; ">
 
-      <form>
+      <form [formGroup]="registerForm">
         <h1 class="h3 mb-3 fw-normal">Criar conta</h1>
 
 
         <div class="form-floating form-item">
-          <input type="text" class="form-control " id="floatingInput" placeholder="Seu nome">
-          <label >Nome </label>
+          <input  formControlName="name" type="text" class="form-control " id="name" placeholder="Nome" [class.is-invalid]="checkName()">
+          <label  for="name"><i class='bx bxs-user'></i> Nome </label>
+          <small *ngIf="checkName()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
         </div>
 
         <div class="form-floating form-item">
-          <input type="email" class="form-control " id="floatingInput" placeholder="name@example.com">
-          <label >Email </label>
+          <input formControlName="email" type="email" class="form-control " id="email" placeholder="Email" [class.is-invalid]="checkEmail() || checkEmailValid()">
+          <label for="email"><i class='bx bxs-envelope'></i> Email </label>
+          <small *ngIf="checkEmail()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+          <small *ngIf="checkEmailValid()" class="text-danger text-start d-block mt-1">*Digite um email valido</small>
         </div>
 
         <div class="form-floating form-item">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Senha</label>
+          <input formControlName="password" type="password" class="form-control" id="password" placeholder="Senha" [class.is-invalid]="checkPassword() || checkPasswordValid() ">
+          <label for="password"><i class='bx bxs-lock-alt'></i> Senha</label>
+          <span *ngIf="checkPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</span>
+          <span *ngIf="checkPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres</span>
         </div>
 
         <div class="form-floating form-item">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Confirme a senha</label>
+          <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirme Senha" [class.is-invalid]="checkConfirmPassword() || checkConfirmPasswordValid()">
+          <label for="confirmPassword"><i class='bx bxs-lock-alt'></i> Confirme a senha</label>
+          <small *ngIf="checkConfirmPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+          <small *ngIf="checkConfirmPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres </small>
         </div>
 
-        <div class="checkbox mb-3">
+        <div class="checkbox my-3 text-start">
           <label>
             <input type="checkbox" value="privacity"> Termo de privacidade
           </label>
         </div>
-        <p class="cadastro"> Já possui uma conta ? <a routerLink="/login"><span>Fazer login</span></a></p>
 
-        <button class="btn btn-lg btn-warning button text-white" type="submit">Criar conta</button>
+        <button class="btn btn-lg btn-warning button text-white" type="submit" (click)="onSubmit()">Criar conta</button>
+
+        <p class="cadastro my-4"> Já possui uma conta ? <a routerLink="/login"><span>Fazer login</span></a></p>
+
         <p class="mt-5 mb-3 text-body-secondary">&copy; Aupets 2023</p>
       </form>
     </main>
