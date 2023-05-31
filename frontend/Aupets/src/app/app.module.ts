@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse'
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { CadastroPrestadorComponent } from './components/pages/cadastro-prestado
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { AdminModuleModule } from './modules/admin-module/admin-module.module';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { AdminModuleModule } from './modules/admin-module/admin-module.module';
     HttpClientModule,
     CollapseModule.forRoot(),
     CarouselModule.forRoot(),
-    AdminModuleModule
+    AdminModuleModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

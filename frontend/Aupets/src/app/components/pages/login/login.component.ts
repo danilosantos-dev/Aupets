@@ -10,5 +10,7 @@ export class LoginComponent {
 
   constructor(){}
 
-
+  checkEmail(){
+    
+  }
 }

@@ -23,10 +23,9 @@ export class UsuarioRepositoryService {
     return this.http.put(this.createCompleteRoute(route, this.envUrl.urlAddress), 
     usuario, this.generateHeaders());
   }
-  public deleteOwner = (route: string) => {
+  public deleteUsuario = (route: string) => {
     return this.http.delete(this.createCompleteRoute(route, this.envUrl.urlAddress));
   }
-
 
   private createCompleteRoute = (route: string, envAddress: string) => {
     return `${envAddress}/${route}`;

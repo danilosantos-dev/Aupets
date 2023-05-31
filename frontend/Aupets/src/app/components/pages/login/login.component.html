@@ -2,13 +2,13 @@
   <div class="text-center form">
     <main class="form-signin  m-auto" style="width: 400px; ">
 
-      <form>
+      <form [formGroup]="loginForm">
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
       <div class="input_box">
         <div class="form-floating form-item">
-          <input type="email" class="form-control " id="floatingInput" placeholder="name@example.com">
-          <label >Email </label>
+          <input formControlName="email" type="email" class="form-control " id="floatingInput" placeholder="Email" [class.is-invalid]="checkEmail()">
+          <label for="email" ><i class='bx bxs-user'></i> Email </label>
         </div>
 
         <div class="form-floating form-item">
