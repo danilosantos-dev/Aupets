@@ -22,21 +22,22 @@
         <div class="form-floating form-item">
           <input formControlName="password" type="password" class="form-control" id="password" placeholder="Senha" [class.is-invalid]="checkPassword() || checkPasswordValid() ">
           <label for="password"><i class='bx bxs-lock-alt'></i> Senha</label>
-          <span *ngIf="checkPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</span>
-          <span *ngIf="checkPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres</span>
+          <small *ngIf="checkPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+          <small *ngIf="checkPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres</small>
         </div>
 
-        <div class="form-floating form-item">
+        <!-- <div class="form-floating form-item">
           <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirme Senha" [class.is-invalid]="checkConfirmPassword() || checkConfirmPasswordValid()">
           <label for="confirmPassword"><i class='bx bxs-lock-alt'></i> Confirme a senha</label>
           <small *ngIf="checkConfirmPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           <small *ngIf="checkConfirmPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres </small>
-        </div>
+        </div> -->
 
         <div class="checkbox my-3 text-start">
           <label>
-            <input type="checkbox" value="privacity"> Termo de privacidade
+            <input formControlName="terms" type="checkbox" value="privacity" required> Termo de privacidade
           </label>
+          <small *ngIf="checkTerms()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
         </div>
 
         <button class="btn btn-lg btn-warning button text-white" type="submit" (click)="onSubmit()">Criar conta</button>

@@ -10,6 +10,10 @@ export class UsuarioRepositoryService {
 
   constructor(private http: HttpClient, private envUrl: EnvironmentUrlService) { }
 
+  public login(){}
+
+  public logout(){}
+
   public getUsuarios = (route: string) => {
     return this.http.get<Usuario[]>(this.createCompleteRoute(route, this.envUrl.urlAddress))
   }
@@ -20,7 +24,7 @@ export class UsuarioRepositoryService {
   }
 
   public updateUsuario = (route: string, usuario: Usuario) => {
-    return this.http.put(this.createCompleteRoute(route, this.envUrl.urlAddress), 
+    return this.http.put(this.createCompleteRoute(route, this.envUrl.urlAddress),
     usuario, this.generateHeaders());
   }
   public deleteUsuario = (route: string) => {
