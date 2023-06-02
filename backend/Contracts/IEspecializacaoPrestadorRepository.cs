@@ -3,7 +3,9 @@
 namespace Contracts;
 public interface IEspecializacaoPrestadorRepository : IRepositoryBase<EspecializacaoPrestador>
 {
-    IEnumerable<Prestador>GetPrestadores(int prestadorId);
-    IEnumerable<Especializacao>GetEspecializacoes(Int16 especializacaoId);
-    IEnumerable<Especie>GetEspecies(int especieId);
+    IEnumerable<EspecializacaoPrestador>GetPrestadores(int prestadorId);
+    IEnumerable<EspecializacaoPrestador>GetEspecializacoes(Int16 especializacaoId);
+    IEnumerable<EspecializacaoPrestador>GetEspecies(int especieId);
+    void CreateEspecializacaoPrestador(EspecializacaoPrestador especializacaoPrestador);
+    void DeleteEspecializacaoPrestador(EspecializacaoPrestador especializacaoPrestador);
 }

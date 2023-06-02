@@ -9,17 +9,27 @@ public class EspecializacaoPrestadorRepository : RepositoryBase<EspecializacaoPr
     {
     }
 
-    public IEnumerable<Especializacao> GetEspecializacoes(short especializacaoId)
+    public void CreateEspecializacaoPrestador(EspecializacaoPrestador especializacaoPrestador)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<Especie> GetEspecies(int especieId)
+    public void DeleteEspecializacaoPrestador(EspecializacaoPrestador especializacaoPrestador)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<Prestador> GetPrestadores(int prestadorId)
+    public IEnumerable<EspecializacaoPrestador> GetEspecializacoes(short especializacaoId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<EspecializacaoPrestador> GetEspecies(int especieId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<EspecializacaoPrestador> GetPrestadores(int prestadorId)
     {
         throw new NotImplementedException();
     }

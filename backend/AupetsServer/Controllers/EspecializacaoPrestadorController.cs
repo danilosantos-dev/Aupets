@@ -101,4 +101,37 @@ public class EspecializacaoPrestadorController : ControllerBase
             return StatusCode(500, "Erro Interno do Servidor");
         }
     }
+
+    [HttpPost]
+    public IActionResult CreateEspecializacaoPrestador([FromBody] EspecializacaoPrestadorForCreationDto especializacaoPrestador)
+    {
+        try
+        {
+            if (especializacaoPrestador is null)
+            {
+                _logger.LogError("Objeto Especializacao Prestador enviado está nulo.");
+                return BadRequest("Objeto Especializacao Prestador é nulo");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError("Objeto Especializacao Prestador enviado é inválido.");
+                return BadRequest("Objeto de modelo inválido");
+            }
+
+            var espePrestEntity = _mapper.Map<EspecializacaoPrestador>(especializacaoPrestador);
+
+            _repository.EspecializacaoPrestador.CreateEspecializacaoPrestador(espePrestEntity);
+            _repository.Save();
+
+            var createdEspecializacao = _mapper.Map<EspecializacaoDto>(espePrestEntity);
+
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Ocorreu um erro no metodo CreateEspecializacaoPrestador: {ex.Message}");
+            return StatusCode(500, "Erro Interno do Servidor");
+        }
+    }
 }
