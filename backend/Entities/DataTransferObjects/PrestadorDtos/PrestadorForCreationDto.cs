@@ -36,11 +36,9 @@ namespace Entities.DataTransferObjects
         public string Cidade { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório: Cep")]
-        [StringLength(8, ErrorMessage = "O Cep não pode ultrapassar 8 caracteres")]
         public string Cep { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório: Nome Numero")]
-        [StringLength(8, ErrorMessage = "O Nome Fantasia não pode ultrapassar 8 caracteres")]
         public string Numero { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório: Atuação")]
@@ -52,9 +50,14 @@ namespace Entities.DataTransferObjects
         [Required(ErrorMessage = "Campo obrigatório: Imagem")]
         public string Imagem { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório: Nome Fantasia")]
-        [StringLength(100, ErrorMessage = "O Nome Fantasia não pode ultrapassar 60 caracteres")]
+        [Required(ErrorMessage = "Campo obrigatório: UrlSite")]
+        [StringLength(100, ErrorMessage = "O UrlSite não pode ultrapassar 60 caracteres")]
         public string UrlSite { get; set; }
 
+        [Required]
+        public string UsuarioId { get; set; }
+
+        [Required]
+        public int StatusId { get; set; }
     }
 }

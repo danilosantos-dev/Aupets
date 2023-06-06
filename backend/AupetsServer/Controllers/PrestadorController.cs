@@ -40,20 +40,20 @@ public class PrestadorController : ControllerBase
     }
 
     [HttpGet("{id}", Name = " GetPrestadorById ")]
-    public IActionResult GetPrestadorById(int prestadorId)
+    public IActionResult GetPrestadorById(int id)
     {
         try
         {
-            var prestador = _repository.Prestador.GetPrestadorById(prestadorId);
+            var prestador = _repository.Prestador.GetPrestadorById(id);
 
             if (prestador is null)
             {
-                _logger.LogError($"Prestador com Id: {prestadorId}, não encontrado.");
+                _logger.LogError($"Prestador com Id: {id}, não encontrado.");
                 return NotFound();
             }
             else
             {
-                _logger.LogInfo($"Retornando o especie com Id: {prestadorId}.");
+                _logger.LogInfo($"Retornando o especie com Id: {id}.");
 
                 var prestResult = _mapper.Map<PrestadorDto>(prestador);
                 return Ok(prestResult);
@@ -90,7 +90,7 @@ public class PrestadorController : ControllerBase
 
             var createdPrestador = _mapper.Map<PrestadorDto>(prestadorEntity);
 
-            return CreatedAtRoute("PrestadorById", new { id = createdPrestador.Id }, createdPrestador);
+            return CreatedAtRoute("GetPrestadorById", new { id = createdPrestador.Id }, createdPrestador);
         }
         catch (Exception ex)
         {

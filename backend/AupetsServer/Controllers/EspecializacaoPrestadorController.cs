@@ -21,7 +21,7 @@ public class EspecializacaoPrestadorController : ControllerBase
         _mapper = mapper;
     }
 
-    [HttpGet("{id}", Name = "Especializacoes")]
+    [HttpGet("GetEspecializacoes/{id}")]
     public IActionResult GetEspecializacoes(Int16 especializacaoId)
     {
         try
@@ -48,7 +48,7 @@ public class EspecializacaoPrestadorController : ControllerBase
         }
     }
 
-    [HttpGet("{id}", Name = " GetPrestadorById ")]
+    [HttpGet("GetPrestadores/{id}")]
     public IActionResult GetPrestadores(int prestadorId)
     {
         try
@@ -75,21 +75,21 @@ public class EspecializacaoPrestadorController : ControllerBase
         }
     }
 
-    [HttpGet("{id}", Name = "EspecieById")]
-    public IActionResult GetEspecies(byte especieId)
+    [HttpGet("GetEspecies/{id}")]
+    public IActionResult GetEspecies(byte Id)
     {
         try
         {
-            var especie = _repository.EspecializacaoPrestador.GetEspecies(especieId);
+            var especie = _repository.EspecializacaoPrestador.GetEspecies(Id);
 
             if (especie is null)
             {
-                _logger.LogError($"Especie com Id: {especieId}, não encontrado.");
+                _logger.LogError($"Especie com Id: {Id}, não encontrado.");
                 return NotFound();
             }
             else
             {
-                _logger.LogInfo($"Retornando o especie com Id: {especieId}.");
+                _logger.LogInfo($"Retornando o especie com Id: {Id}.");
 
                 var especieResult = _mapper.Map<EspecializacaoPrestadorDto>(especie);
                 return Ok(especieResult);

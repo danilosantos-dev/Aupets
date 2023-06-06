@@ -40,20 +40,20 @@ namespace AupetsServer.Controllers
         }
 
         [HttpGet("{id}", Name = "AtuacaoById")]
-        public IActionResult GetAtuacaoById(Int16 atuacaoId)
+        public IActionResult GetAtuacaoById(Int16 id)
         {
             try
             {
-                var atuacao = _repository.Atuacao.GetAtuacaoById(atuacaoId);
+                var atuacao = _repository.Atuacao.GetAtuacaoById(id);
 
                 if (atuacao is null)
                 {
-                    _logger.LogError($"Atuacao com Id: {atuacaoId}, não encontrado.");
+                    _logger.LogError($"Atuacao com Id: {id}, não encontrado.");
                     return NotFound();
                 }
                 else
                 {
-                    _logger.LogInfo($"Retornando a atuacao com Id: {atuacaoId}.");
+                    _logger.LogInfo($"Retornando a atuacao com Id: {id}.");
 
                     var atuaResult = _mapper.Map<AtuacaoDto>(atuacao);
                     return Ok(atuaResult);

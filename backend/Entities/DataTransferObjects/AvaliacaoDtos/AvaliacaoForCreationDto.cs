@@ -15,5 +15,10 @@ namespace Entities.DataTransferObjects
         [Required(ErrorMessage ="Campo obrigatório: Rating")]
         public byte Rating { get; set; }
 
+        [Required]
+        public int UsuarioId { get; set; }
+
+        [Required]
+        public int PrestadorId { get; set; }
     }
 }

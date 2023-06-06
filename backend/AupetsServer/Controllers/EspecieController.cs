@@ -41,20 +41,20 @@ namespace AupetsServer.Controllers
         }
 
         [HttpGet("{id}", Name = "EspecieById")]
-        public IActionResult GetEspecieById(byte especieId)
+        public IActionResult GetEspecieById(byte id)
         {
             try
             {
-                var especie = _repository.Especie.GetEspecieById(especieId);
+                var especie = _repository.Especie.GetEspecieById(id);
 
                 if (especie is null)
                 {
-                    _logger.LogError($"Especie com Id: {especieId}, não encontrado.");
+                    _logger.LogError($"Especie com Id: {id}, não encontrado.");
                     return NotFound();
                 }
                 else
                 {
-                    _logger.LogInfo($"Retornando o especie com Id: {especieId}.");
+                    _logger.LogInfo($"Retornando o especie com Id: {id}.");
 
                     var especieResult = _mapper.Map<EspecieDto>(especie);
                     return Ok(especieResult);

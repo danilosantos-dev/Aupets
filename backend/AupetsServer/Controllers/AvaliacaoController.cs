@@ -40,20 +40,20 @@ namespace AupetsServer.Controllers
         }
 
         [HttpGet("{id}", Name = "AvaliacaoById")]
-        public IActionResult GetAvaliacaoById(int avaliacaoId)
+        public IActionResult GetAvaliacaoById(int id)
         {
             try
             {
-                var avaliacao = _repository.Avaliacao.GetAvaliacaoById(avaliacaoId);
+                var avaliacao = _repository.Avaliacao.GetAvaliacaoById(id);
 
                 if (avaliacao is null)
                 {
-                    _logger.LogError($"Avaliacao com Id: {avaliacaoId}, não encontrado.");
+                    _logger.LogError($"Avaliacao com Id: {id}, não encontrado.");
                     return NotFound();
                 }
                 else
                 {
-                    _logger.LogInfo($"Retornando a avaliacao com Id: {avaliacaoId}.");
+                    _logger.LogInfo($"Retornando a avaliacao com Id: {id}.");
 
                     var avalResult = _mapper.Map<AtuacaoDto>(avaliacao);
                     return Ok(avalResult);
@@ -88,7 +88,7 @@ namespace AupetsServer.Controllers
                 _repository.Avaliacao.CreateAvaliacao(avalEntity);
                 _repository.Save();
 
-                var createdAvaliacao = _mapper.Map<AtuacaoDto>(avalEntity);
+                var createdAvaliacao = _mapper.Map<AvaliacaoDto>(avalEntity);
 
                 return CreatedAtRoute("AvaliacaoById", new { id = createdAvaliacao.Id }, createdAvaliacao);
             }

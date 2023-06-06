@@ -12,6 +12,4 @@ public class Especializacao
     [Required]
     [StringLength(255)]
     public string Nome { get; set; }
-
-    public ICollection<EspecializacaoPrestador> Prestadores { get; set; }
 }

@@ -34,9 +34,7 @@ namespace Entities
                 .HasForeignKey(ep => ep.PrestadorId);
 
             builder.Entity<EspecializacaoPrestador>()
-                .HasOne(ep => ep.Especializacao)
-                .WithMany(p => p.Prestadores)
-                .HasForeignKey(ep => ep.EspecializacaoId);
+                .HasOne(ep => ep.Especializacao);
             #endregion
 
             #region Many to Many - AtuacaoPrestador

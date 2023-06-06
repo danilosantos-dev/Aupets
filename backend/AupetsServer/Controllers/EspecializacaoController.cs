@@ -41,20 +41,20 @@ namespace AupetsServer.Controllers
         }
 
         [HttpGet("{id}", Name = "EspecializacaoById")]
-        public IActionResult GetEspecializacaoById(Int16 especializacaoId)
+        public IActionResult GetEspecializacaoById(Int16 id)
         {
             try
             {
-                var especializacao = _repository.Especializacao.GetEspecializacaoById(especializacaoId);
+                var especializacao = _repository.Especializacao.GetEspecializacaoById(id);
 
                 if (especializacao is null)
                 {
-                    _logger.LogError($"Especializacao com Id: {especializacaoId}, não encontrado.");
+                    _logger.LogError($"Especializacao com Id: {id}, não encontrado.");
                     return NotFound();
                 }
                 else
                 {
-                    _logger.LogInfo($"Retornando a especializacao com Id: {especializacaoId}.");
+                    _logger.LogInfo($"Retornando a especializacao com Id: {id}.");
 
                     var especialiResult = _mapper.Map<EspecializacaoDto>(especializacao);
                     return Ok(especialiResult);
