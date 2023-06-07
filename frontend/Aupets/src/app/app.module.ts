@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse'
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +44,8 @@ import { AdminModuleModule } from './modules/admin-module/admin-module.module';
     CollapseModule.forRoot(),
     CarouselModule.forRoot(),
     AdminModuleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

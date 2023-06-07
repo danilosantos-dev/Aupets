@@ -17,7 +17,7 @@ export class CadastroUsuarioComponent {
       name: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      confirmPassword: ['', Validators.required ],
       terms:['', Validators.required]
     })
   }
@@ -46,8 +46,14 @@ export class CadastroUsuarioComponent {
     return this.registerForm.controls['confirmPassword'].dirty && this.registerForm.hasError('required', 'confirmPassword');
   }
 
-  checkConfirmPasswordValid(){
-    return this.registerForm.controls['confirmPassword'].dirty && this.registerForm.hasError('minlength', 'confirmPassword');
+  checkConfirmPasswordEqual(){
+    const password = this.registerForm.get('password')?.value;
+    const confirmPassword = this.registerForm.get('confirmPassword')?.value;
+    if (password === confirmPassword) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   checkTerms(){

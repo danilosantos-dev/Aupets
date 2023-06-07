@@ -1,104 +1,111 @@
 <div class="container-fluid ">
-    <div class="text-center form">
-        <main class="form-signin  m-auto ">
+  <div class="text-center form">
+    <main class="form-signin  m-auto ">
 
-            <form>
-                <h1 class="h3 mb-3 fw-normal">Cadastro Prestador</h1>
+      <form [formGroup]="companyRegisterForm">
 
-                <div class="input_box">
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control " id="floatingInput" placeholder="Razao Social">
-                        <label>Razão Social </label>
-                    </div>
+        <h1 class="h3 mb-3 fw-normal">Cadastro Prestador</h1>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Nome Fantasia">
-                        <label>Nome Fantasia</label>
-                    </div>
+        <div class="input_box">
+          <div class="form-floating form-item">
+            <input formControlName="socialReason" type="text" class="form-control " id="floatingInput" placeholder="Razao Social" [class.is-invalid]="checkReason()">
+            <label>Razão Social </label>
+            <small *ngIf="checkReason()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <select class="form-select" id="floatingSelect" aria-label="Tipo pessoa">
-                            <option selected disabled></option>
-                            <option value="1">Física</option>
-                            <option value="2">Jurídica</option>
-                        </select>
-                        <label for="floatingSelect">Tipo pessoa: </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="fantasyName" type="text" class="form-control" id="floatingInput" placeholder="Nome Fantasia">
+            <label>Nome Fantasia</label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="CPF ou CNPJ ">
-                        <label> CPF/CNPJ </label>
-                    </div>
+          <div class="form-floating form-item">
+            <select formControlName="typePerson" class="form-select" id="floatingSelect" aria-label="Tipo pessoa">
+              <option selected disabled></option>
+              <option value="1">Física</option>
+              <option value="2">Jurídica</option>
+            </select>
+            <label for="floatingSelect">Tipo pessoa: </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Endereço">
-                        <label> Endereço </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="cpfCnpj" type="text" class="form-control" id="floatingInput" placeholder="CPF ou CNPJ ">
+            <label> CPF/CNPJ </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Complemento">
-                        <label> Complemento </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="address" type="text" class="form-control" id="floatingInput" placeholder="Endereço">
+            <label> Endereço </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Bairro">
-                        <label> Bairro </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Complemento">
+            <label> Complemento </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Cidade">
-                        <label> Cidade </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="neighborhood" type="text" class="form-control" id="floatingInput" placeholder="Bairro">
+            <label> Bairro </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="CEP">
-                        <label> CEP </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="city" type="text" class="form-control" id="floatingInput" placeholder="Cidade">
+            <label> Cidade </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="CEP">
-                        <label> Número </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="cep" type="text" class="form-control" id="floatingInput" placeholder="CEP">
+            <label> CEP </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <select class="form-select" id="floatingSelect" aria-label="Atuação">
-                            <option selected disabled></option>
-                            <option value="1">atuacao</option>
-                        </select>
-                        <label for="floatingSelect">Atuação: </label>
-                    </div>
+          <div class="form-floating form-item">
+            <input formControlName="number" type="text" class="form-control" id="floatingInput" placeholder="CEP">
+            <label> Número </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <select class="form-select" id="floatingSelect" aria-label="Especialização">
-                            <option selected disabled></option>
-                            <option value="1">Especializações</option>
-                        </select>
-                        <label for="floatingSelect">Especialização: </label>
-                    </div>
+          <div class="form-floating form-item">
+            <select formControlName="occupation" class="form-select" id="floatingSelect" aria-label="Atuação">
+              <option selected disabled></option>
+              <option value="1">atuacao</option>
+            </select>
+            <label for="floatingSelect">Atuação: </label>
+          </div>
 
-                    <div class="form-floating form-item">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Url do site">
-                        <label> Url do site </label>
-                    </div>
+          <div class="form-floating form-item">
+            <select formControlName="specialization" class="form-select" id="floatingSelect" aria-label="Especialização">
+              <option selected disabled></option>
+              <option value="1">Especializações</option>
+            </select>
+            <label for="floatingSelect">Especialização: </label>
+          </div>
 
-                    <div class="mb-3">
-                      <label for="formFile" class="form-label text-start d-block">Escolha uma imagem que represente sua empresa: </label>
-                      <input class="form-control" type="file" id="formFile">
-                    </div>
+          <div class="form-floating form-item">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Url do site">
+            <label> Url do site </label>
+          </div>
 
-                </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label text-start d-block">Escolha uma imagem que represente sua empresa: </label>
+            <input formControlName="image" class="form-control" type="file" id="formFile">
+          </div>
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Termo de Privacidade
-                    </label>
-                </div>
+        </div>
 
-                <p class="cadastro"> Já é um dos nossos parceiros ? <a routerLink="/login"><span>Fazer Login</span></a></p>
+        <div class="form-check my-4 text-start">
 
-                <button class="btn btn-lg btn-warning text-white" type="submit">Enviar Pedido</button>
-                <p class="mt-5 mb-3 text-body-secondary">&copy; Aupets 2023</p>
-            </form>
-        </main>
-    </div>
+          <input formControlName="terms" type="checkbox" value="remember-me" class="form-check-input" required>
+          <label class="form-check-label" for="exampleCheck1">Termo de privacidade</label>
+          <small *ngIf="checkTerm()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+
+        </div>
+
+        <button class="btn btn-lg btn-warning text-white" type="submit" (click)="onSubmit()">Enviar Pedido</button>
+
+        <p class="cadastro mt-4"> Já é um dos nossos parceiros ? <a routerLink="/login"><span>Fazer Login</span></a></p>
+
+        <p class="my-3 text-body-secondary">&copy; Aupets 2023</p>
+
+
+      </form>
+    </main>
+  </div>
 </div>

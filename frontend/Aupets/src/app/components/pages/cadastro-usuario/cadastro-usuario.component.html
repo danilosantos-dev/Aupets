@@ -26,17 +26,18 @@
           <small *ngIf="checkPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres</small>
         </div>
 
-        <!-- <div class="form-floating form-item">
-          <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirme Senha" [class.is-invalid]="checkConfirmPassword() || checkConfirmPasswordValid()">
+        <div class="form-floating form-item">
+          <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirme Senha" [class.is-invalid]="checkConfirmPassword() || checkConfirmPasswordEqual()">
           <label for="confirmPassword"><i class='bx bxs-lock-alt'></i> Confirme a senha</label>
           <small *ngIf="checkConfirmPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
-          <small *ngIf="checkConfirmPasswordValid()" class="text-danger text-start d-block mt-1">*Digite no minimo 6 caracteres </small>
-        </div> -->
+          <small *ngIf="checkConfirmPasswordEqual()" class="text-danger text-start d-block mt-1">*Os campos devem ser iguais </small>
+        </div>
 
-        <div class="checkbox my-3 text-start">
-          <label>
-            <input formControlName="terms" type="checkbox" value="privacity" required> Termo de privacidade
-          </label>
+        <div class="form-check my-3 text-start">
+
+            <input formControlName="terms" class="form-check-input" type="checkbox" value="privacity" required> 
+            <label class="form-check-label" for="exampleCheck1">Termo de privacidade</label>
+
           <small *ngIf="checkTerms()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
         </div>
 
