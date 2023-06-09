@@ -14,27 +14,33 @@
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="fantasyName" type="text" class="form-control" id="floatingInput" placeholder="Nome Fantasia">
+            <input formControlName="fantasyName" type="text" class="form-control" id="floatingInput" placeholder="Nome Fantasia" [class.is-invalid]="checkFantasyName()">
             <label>Nome Fantasia</label>
+            <small *ngIf="checkFantasyName()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <select formControlName="typePerson" class="form-select" id="floatingSelect" aria-label="Tipo pessoa">
+            <select formControlName="typePerson" class="form-select" id="floatingSelect" aria-label="Tipo pessoa" [class.is-invalid]="checkTypePerson()">
               <option selected disabled></option>
               <option value="1">Física</option>
               <option value="2">Jurídica</option>
             </select>
             <label for="floatingSelect">Tipo pessoa: </label>
+            <small *ngIf="checkTypePerson()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="cpfCnpj" type="text" class="form-control" id="floatingInput" placeholder="CPF ou CNPJ ">
+            <input formControlName="cpfCnpj" type="text" class="form-control" id="floatingInput" placeholder="CPF ou CNPJ " [class.is-invalid]="checkCpfCnpj()">
             <label> CPF/CNPJ </label>
+            <small *ngIf="checkCpfCnpj()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+            <small *ngIf="checkCpfCnpjValid()" class="text-danger text-start d-block mt-1">*Digite um CPF ou CNPJ valido</small>
+
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="address" type="text" class="form-control" id="floatingInput" placeholder="Endereço">
+            <input formControlName="address" type="text" class="form-control" id="floatingInput" placeholder="Endereço" [class.is-invalid]="checkAddress()" >
             <label> Endereço </label>
+            <small *ngIf="checkAddress()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
@@ -43,39 +49,46 @@
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="neighborhood" type="text" class="form-control" id="floatingInput" placeholder="Bairro">
+            <input formControlName="neighborhood" type="text" class="form-control" id="floatingInput" placeholder="Bairro" [class.is-invalid]="checkNeighborhood()">
             <label> Bairro </label>
+            <small *ngIf="checkNeighborhood()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="city" type="text" class="form-control" id="floatingInput" placeholder="Cidade">
-            <label> Cidade </label>
+            <input formControlName="city" type="text" class="form-control" id="floatingInput" placeholder="Cidade" [class.is-invalid]="checkCity()">
+            <label> Cidade e Estado  </label>
+            <small *ngIf="checkCity()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="cep" type="text" class="form-control" id="floatingInput" placeholder="CEP">
+            <input formControlName="cep" type="text" class="form-control" id="floatingInput" placeholder="CEP" [class.is-invalid]="checkCep() || checkCepValid()" >
             <label> CEP </label>
+            <small *ngIf="checkCep()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+            <small *ngIf="checkCepValid()" class="text-danger text-start d-block mt-1">*Digite um Cep Valido</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="number" type="text" class="form-control" id="floatingInput" placeholder="CEP">
+            <input formControlName="number" type="text" class="form-control" id="floatingInput" placeholder="CEP" [class.is-invalid]="checkNumber()">
             <label> Número </label>
+            <small *ngIf="checkNumber()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <select formControlName="occupation" class="form-select" id="floatingSelect" aria-label="Atuação">
+            <select formControlName="occupation" class="form-select" id="floatingSelect" aria-label="Atuação" [class.is-invalid]="checkOccupation()">
               <option selected disabled></option>
               <option value="1">atuacao</option>
             </select>
             <label for="floatingSelect">Atuação: </label>
+            <small *ngIf="checkOccupation()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <select formControlName="specialization" class="form-select" id="floatingSelect" aria-label="Especialização">
+            <select formControlName="specialization" class="form-select" id="floatingSelect" aria-label="Especialização" [class.is-invalid]="checkSpecialization()">
               <option selected disabled></option>
               <option value="1">Especializações</option>
             </select>
             <label for="floatingSelect">Especialização: </label>
+            <small *ngIf="checkSpecialization()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
@@ -85,7 +98,8 @@
 
           <div class="mb-3">
             <label for="formFile" class="form-label text-start d-block">Escolha uma imagem que represente sua empresa: </label>
-            <input formControlName="image" class="form-control" type="file" id="formFile">
+            <input formControlName="image" class="form-control" type="file" id="formFile" [class.is-invalid]="checkImage()">
+            <small *ngIf="checkImage()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
         </div>
