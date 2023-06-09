@@ -10,10 +10,6 @@ export class UsuarioRepositoryService {
 
   constructor(private http: HttpClient, private envUrl: EnvironmentUrlService) { }
 
-  public login(){}
-
-  public logout(){}
-
   public getUsuarios = (route: string) => {
     return this.http.get<Usuario[]>(this.createCompleteRoute(route, this.envUrl.urlAddress))
   }
