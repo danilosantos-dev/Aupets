@@ -1,30 +1,59 @@
-header{
-    background-color: black;
+header {
+  background-color: rgb(31, 31, 31);
+  height: 350px;
 }
 
-
-.titulo > h3 {
-    text-decoration: none;
-    color: #fff;
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-weight: 700;
-    letter-spacing: 0.0625em;
-    text-transform: uppercase;
+.nome-empresa{
+  display: flex;
+  text-align: center;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.nome-empresa h3 {
+  font-size: 40px;
+}
 
-img {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.nome-empresa a{
+  font-size: 30px;
+  color: white;
+}
+
+.header-img{
+  display: flex;
+  justify-content: center;
+}
+
+.imagem-empresa {
+  position: absolute;
+  top: 150px;
+  width: 70%;
+  height: 500px;
+}
+
+.about{
+  display: flex;
+  margin: 0 auto;
+  margin-top: 350px;
+  width: 70%;
 }
 
 .page-section {
-  padding: 4rem 0 ;
+  padding: 4rem 0;
 }
-.page-section h2.section-heading, .page-section .section-heading.h2 {
-  font-size: 2.5rem;
-  margin-top: 3rem;
-  margin-bottom: 5rem;
+
+.page-section h2.section-heading,
+.page-section .section-heading.h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
   font-weight: 600;
 }
+
+.go-back{
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+
+

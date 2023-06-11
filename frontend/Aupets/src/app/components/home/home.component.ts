@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,15 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
   }
 
-  //scrool da pagina
-  scrollTo(element: any): void {
-    (document.getElementById(element) as HTMLElement)
-    .scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  goToNextPage() {
+    this.router.navigate(['/prestador']).then(() => {
+      window.scrollTo(0, 0); // Rola para o topo da nova página
+    });
   }
 
 }
