@@ -5,5 +5,5 @@ export interface Usuario {
     senhaHash: string;
     email: string;
     imagem: string;
-    eAdmin: boolean;
+    eAdmin: string;
 }

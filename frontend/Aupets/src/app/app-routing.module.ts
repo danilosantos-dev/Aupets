@@ -13,7 +13,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
+  { path: 'cadastro', component: CadastroUsuarioComponent },
   { path: 'cadastro-prestador',component: CadastroPrestadorComponent },
   { path: 'admin', loadChildren:()=> import('../app/modules/admin-module/admin-module.module')
                     .then(m=>m.AdminModuleModule)},
