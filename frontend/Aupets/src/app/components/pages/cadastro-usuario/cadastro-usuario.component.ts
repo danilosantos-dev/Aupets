@@ -114,7 +114,7 @@ export class CadastroUsuarioComponent {
     const usuario: UsuarioForCreation = this.registerForm.value;
     this.usuarioService.createUsuario(apiUrl, usuario).subscribe(() => {
       this.router.navigate(['/login']);
-    });
+    }, (error) => alert('Erro ao Criar Usuario!'));
   }
 
   //Percorre o formulario e valida os inputs caso estejam vazios

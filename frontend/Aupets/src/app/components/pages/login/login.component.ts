@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { RequestLogin } from './../../../interfaces/RequestLogin.model';
 import { Component } from '@angular/core';
 import {
@@ -17,13 +18,13 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: [ '', Validators.compose([Validators.required, Validators.minLength(6)]),
+      senha: [ '', Validators.compose([Validators.required, Validators.minLength(8)]),
       ],
     });
   }
@@ -44,30 +45,35 @@ export class LoginComponent {
 
   checkPassword() {
     return (
-      this.loginForm.controls['password'].dirty &&
-      this.loginForm.hasError('required', 'password')
+      this.loginForm.controls['senha'].dirty &&
+      this.loginForm.hasError('required', 'senha')
     );
   }
 
   checkPasswordValid() {
     return (
-      this.loginForm.controls['password'].dirty &&
-      this.loginForm.hasError('minlength', 'password')
+      this.loginForm.controls['senha'].dirty &&
+      this.loginForm.hasError('minlength', 'senha')
     );
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-
-      const requestLogin: RequestLogin = this.loginForm.value;
-      this.loginService.Login(requestLogin).subscribe((dados) => {
-        console.log(dados);
-      })}
-
+      //ENVIAR DADOS PARA A API
+      this.fazerLogin();
+    }
       else {
       //Disparo do erro
       this.validateAllFormFields(this.loginForm);
     }
+  }
+
+  fazerLogin(): void{
+    const apiUrl = 'api/usuario/login'
+    const requestLogin: RequestLogin = this.loginForm.value;
+    this.loginService.Login(apiUrl, requestLogin).subscribe(()=>{
+      this.router.navigate(['/home']);
+    }, (error) => alert('Erro ao efetuar login!'))
   }
 
   //Percorre o formulario e valida os inputs caso estejam vazios

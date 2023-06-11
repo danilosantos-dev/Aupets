@@ -1,21 +1,36 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+
+import { EnvironmentUrlService } from './environment-url.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Usuario } from 'src/app/interfaces/Usuario.model';
 import { RequestLogin } from 'src/app/interfaces/RequestLogin.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  constructor(
+    private http: HttpClient,
+    private envUrl: EnvironmentUrlService
+  ) {}
 
-  private url = 'https://localhost:7098/api/usuario/login'
-
-  constructor(private http: HttpClient) { }
-
-  public Login(requestLogin: RequestLogin):Observable<RequestLogin> {
-    return  this.http.post<RequestLogin>(this.url, requestLogin);
+  public Login(route: string, requestLogin: RequestLogin) {
+    return this.http.post<Usuario>(
+      this.createCompleteRoute(route, this.envUrl.urlAddress),
+      requestLogin,
+      this.generateHeaders()
+    );
   }
 
-  public LogOut(){}
+  public LogOut() {}
 
+  private createCompleteRoute = (route: string, envAddress: string) => {
+    return `${envAddress}/${route}`;
+  };
+  
+  private generateHeaders = () => {
+    return {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+  };
 }

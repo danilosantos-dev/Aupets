@@ -15,7 +15,7 @@
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password"
+            <input formControlName="senha" type="password" class="form-control" id="password" placeholder="Password"
               [class.is-invalid]="checkPassword() || checkPasswordValid()">
             <label for="password"><i class='bx bxs-lock-alt'></i> Senha</label>
             <small *ngIf="checkPassword()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
