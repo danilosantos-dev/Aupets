@@ -1,0 +1,18 @@
+export interface PrestadorForCreation{
+  RazaoSocial: string,
+  NomeFantasia: string,
+  TipoPessoa: string,
+  CnpjCpf: string,
+  Endereco: string,
+  Complemento?: string,
+  Bairro: string,
+  Cidade: string,
+  Cep: string,
+  Numero: string,
+  Atuacao: string,
+  Especializacao: string,
+  Imagem: string,
+  UrlSite?: string,
+  StatusId: number,
+  UsuarioId: string,
+}

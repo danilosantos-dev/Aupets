@@ -7,7 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { LoginService } from 'src/app/shared/services/login.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -71,7 +71,7 @@ export class LoginComponent {
   fazerLogin(): void{
     const apiUrl = 'api/usuario/login'
     const requestLogin: RequestLogin = this.loginForm.value;
-    this.loginService.Login(apiUrl, requestLogin).subscribe(()=>{
+    this.authService.Login(apiUrl, requestLogin).subscribe(()=>{
       this.router.navigate(['/home']);
     }, (error) => alert('Erro ao efetuar login!'))
   }

@@ -1,53 +1,47 @@
 import { Injectable } from '@angular/core';
 
-import { UsuarioForCreation } from './../../interfaces/usuarioForCreation.model';
 import { EnvironmentUrlService } from './environment-url.service';
-import { Usuario } from '../../interfaces/usuario.model';
+import { Prestador } from 'src/app/interfaces/prestador.model';
+import { PrestadorForCreation } from 'src/app/interfaces/prestadorForCreation.mode';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioRepositoryService {
+export class PrestadorRepositoryService {
   constructor(
     private http: HttpClient,
     private envUrl: EnvironmentUrlService
   ) {}
 
-  // verificarExistenciaUsuario(email: string) {
-  //   const url = 'https://localhost:7098/api/usuario'
-  //   return this.http.get<any>(`${url} ${email}`);
-  // }
-
-  public getUsuarios = (route: string) => {
-    return this.http.get<Usuario[]>(
+  public getPrestadores = (route: string) => {
+    return this.http.get<Prestador[]>(
       this.createCompleteRoute(route, this.envUrl.urlAddress)
     );
   };
 
-  public getUsuarioById = (route: string) => {
-    return this.http.get<Usuario>(
+  public getPrestadorById = (route: string) => {
+    return this.http.get<Prestador>(
       this.createCompleteRoute(route, this.envUrl.urlAddress)
     );
   };
 
-  public createUsuario = (route: string, usuario: UsuarioForCreation) => {
-    return this.http.post<Usuario>(
+  public createPrestador = (route: string, prestador: PrestadorForCreation) => {
+    return this.http.post<Prestador>(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
-      usuario,
+      prestador,
       this.generateHeaders()
     );
   };
-  
-  public updateUsuario = (route: string, usuario: Usuario) => {
+  public updatePrestador = (route: string, prestador: Prestador) => {
     return this.http.put(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
-      usuario,
+      prestador,
       this.generateHeaders()
     );
   };
 
-  public deleteUsuario = (route: string) => {
+  public deletePrestador = (route: string) => {
     return this.http.delete(
       this.createCompleteRoute(route, this.envUrl.urlAddress)
     );

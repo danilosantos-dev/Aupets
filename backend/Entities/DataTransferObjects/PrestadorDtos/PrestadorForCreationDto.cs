@@ -23,7 +23,6 @@ namespace Entities.DataTransferObjects
         [StringLength(60, ErrorMessage = "O Endereco não pode ultrapassar 60 caracteres")]
         public string Endereco { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório: Complemento")]
         [StringLength(60, ErrorMessage = "O Complemento não pode ultrapassar 60 caracteres")]
         public string Complemento { get; set; }
 
@@ -50,8 +49,7 @@ namespace Entities.DataTransferObjects
         [Required(ErrorMessage = "Campo obrigatório: Imagem")]
         public string Imagem { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório: UrlSite")]
-        [StringLength(100, ErrorMessage = "O UrlSite não pode ultrapassar 60 caracteres")]
+        [StringLength(100, ErrorMessage = "O UrlSite não pode ultrapassar 100 caracteres")]
         public string UrlSite { get; set; }
 
         [Required]

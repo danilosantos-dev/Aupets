@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/Usuario.model';
-import { UsuarioForCreation } from 'src/app/interfaces/UsuarioForCreation.model';
 import { Router } from '@angular/router';
-
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { UsuarioRepositoryService } from 'src/app/shared/services/usuario-repository.service';
+import { UsuarioForCreation } from 'src/app/interfaces/UsuarioForCreation.model';
 
 @Component({
   selector: 'app-cadastro-usuario',
