@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { EnvironmentUrlService } from './environment-url.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Usuario } from './../../interfaces/usuario.model';
+import { Usuario } from 'src/app/interfaces/usuario.model';
 import { RequestLogin } from 'src/app/interfaces/RequestLogin.model';
 
 @Injectable({

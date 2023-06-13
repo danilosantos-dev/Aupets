@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { UsuarioForCreation } from './../../interfaces/usuarioForCreation.model';
+import { UsuarioForCreation } from 'src/app/interfaces/usuarioForCreation.model';
 import { EnvironmentUrlService } from './environment-url.service';
-import { Usuario } from '../../interfaces/usuario.model';
+import { Usuario } from 'src/app/interfaces/usuario.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -38,7 +38,7 @@ export class UsuarioRepositoryService {
       this.generateHeaders()
     );
   };
-  
+
   public updateUsuario = (route: string, usuario: Usuario) => {
     return this.http.put(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
