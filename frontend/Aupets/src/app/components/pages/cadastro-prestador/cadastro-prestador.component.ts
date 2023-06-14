@@ -5,11 +5,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { PrestadorForCreation } from 'src/app/interfaces/prestadorForCreation.mode';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { MessagesService } from 'src/app/shared/services/messages.service';
 import { PrestadorRepositoryService } from 'src/app/shared/services/prestador-repository.service';
-import { UsuarioRepositoryService } from 'src/app/shared/services/usuario-repository.service';
+
 
 @Component({
   selector: 'app-cadastro-prestador',
@@ -24,9 +25,9 @@ export class CadastroPrestadorComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private prestadorService: PrestadorRepositoryService,
-    private usuarioService: UsuarioRepositoryService,
     private router: Router,
-    private route: ActivatedRoute
+    private messagesService: MessagesService
+
   ) {}
 
   ngOnInit() {
@@ -160,7 +161,7 @@ export class CadastroPrestadorComponent {
       if(this.authService.isLogged()){
         this.criarPrestador();
       }else{
-        alert('Faça login primeiro!')
+        this.messagesService.add('Realize login primeiro!')
         this.router.navigate(['/login']);
       }
     } else {
@@ -173,8 +174,9 @@ export class CadastroPrestadorComponent {
     const apiUrl = 'api/prestador'
     const prestador: PrestadorForCreation = this.companyRegisterForm.value;
     this.prestadorService.createPrestador(apiUrl, prestador).subscribe( () => {
-      alert('Cadastro concluido com sucesso!')
-    }, (error) => { alert(error) });
+      this.companyRegisterForm.reset();
+      this.messagesService.add('Cadastro realizado com sucesso!');
+    });
   }
 
 

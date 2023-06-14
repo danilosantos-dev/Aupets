@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/usuario.model';
-import { Router } from '@angular/router';
-import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { UsuarioRepositoryService } from 'src/app/shared/services/usuario-repository.service';
 import { UsuarioForCreation } from 'src/app/interfaces/usuarioForCreation.model';
+import { MessagesService } from 'src/app/shared/services/messages.service';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -17,8 +16,8 @@ export class CadastroUsuarioComponent {
   constructor(
     private fb: FormBuilder,
     private usuarioService: UsuarioRepositoryService,
-    private errorHandler: ErrorHandlerService,
-    private router: Router
+    private messagesService: MessagesService
+
   ) {}
 
   ngOnInit() {
@@ -107,8 +106,9 @@ export class CadastroUsuarioComponent {
     const apiUrl = 'api/usuario';
     const usuario: UsuarioForCreation = this.registerForm.value;
     this.usuarioService.createUsuario(apiUrl, usuario).subscribe(() => {
-      this.router.navigate(['/login']);
-    }, (error) => alert('Erro ao Criar Usuario!'));
+      this.registerForm.reset();
+      this.messagesService.add('Cadastro realizado com sucesso');
+    }, () => {this.messagesService.add('Ocorreu um erro, tente novamente')});
   }
 
   //Percorre o formulario e valida os inputs caso estejam vazios

@@ -66,4 +66,7 @@ h1{
   .h1{
     color: white;
   }
+  .form-check{
+    margin-left: 20px;
+  }
 }

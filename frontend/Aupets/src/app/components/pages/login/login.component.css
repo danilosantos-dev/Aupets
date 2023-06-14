@@ -67,5 +67,8 @@ h1{
   .button{
     width: 200px;
   }
+  .form-check{
+    margin-left: 20px;
+  }
 
 }

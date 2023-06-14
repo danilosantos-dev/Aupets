@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse'
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +19,7 @@ import { CadastroPrestadorComponent } from './components/pages/cadastro-prestado
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { AdminModuleModule } from './modules/admin-module/admin-module.module';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import { AdminModuleModule } from './modules/admin-module/admin-module.module';
     PrestadorComponent,
     CadastroPrestadorComponent,
     NotFoundComponent,
-    InternalServerComponent
+    InternalServerComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,6 @@ import { AdminModuleModule } from './modules/admin-module/admin-module.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CollapseModule.forRoot(),
-    CarouselModule.forRoot(),
     AdminModuleModule,
     ReactiveFormsModule,
     FormsModule

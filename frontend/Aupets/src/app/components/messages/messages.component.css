@@ -1,0 +1,51 @@
+.message{
+  position: fixed;
+  top: 3em;
+  width: 50%;
+  margin-left: 50%;
+  left: -25%;
+  z-index: 10;
+  background-color: #e2e2e2;
+  padding: 1.5em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.message-header button{
+  border: none;
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+  background-color: rgb(255, 220, 67);
+  border-radius: 50%;
+}
+.message h2{
+  font-size: 1.8em;
+}
+.message p{
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .message{
+    width: 70%;
+    left: -35%;
+  }
+  .message-header button{
+    width: 30px;
+    height: 30px;
+  }
+  .message p{
+    font-size: 0.9em;
+  }
+  .message h2{
+    font-size: 1em;
+  }
+}

@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { MessagesService } from 'src/app/shared/services/messages.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private messagesService: MessagesService) {
   }
 
   ngOnInit(): void {
@@ -73,7 +74,7 @@ export class LoginComponent {
     const requestLogin: RequestLogin = this.loginForm.value;
     this.authService.Login(apiUrl, requestLogin).subscribe(()=>{
       this.router.navigate(['/home']);
-    }, (error) => alert('Erro ao efetuar login!'))
+    }, () => {this.messagesService.add('Email ou senha invalidos')})
   }
 
   //Percorre o formulario e valida os inputs caso estejam vazios
