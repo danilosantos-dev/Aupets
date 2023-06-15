@@ -38,6 +38,7 @@ namespace Entities.DataTransferObjects
         public string Cep { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório: Nome Numero")]
+        [StringLength(8, ErrorMessage = "O número não pode ultrapassar 8 caracteres")] 
         public string Numero { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório: Atuação")]

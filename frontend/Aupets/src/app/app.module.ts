@@ -20,6 +20,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { AdminModuleModule } from './modules/admin-module/admin-module.module';
 import { MessagesComponent } from './components/messages/messages.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MessagesComponent } from './components/messages/messages.component';
     CadastroPrestadorComponent,
     NotFoundComponent,
     InternalServerComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -8,29 +8,29 @@
 
         <div class="input_box">
           <div class="form-floating form-item">
-            <input formControlName="socialReason" type="text" class="form-control " id="floatingInput" placeholder="Razao Social" [class.is-invalid]="checkReason()">
+            <input formControlName="razaoSocial" type="text" class="form-control " id="floatingInput" placeholder="Razao Social" [class.is-invalid]="checkReason()">
             <label>Razão Social </label>
             <small *ngIf="checkReason()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="fantasyName" type="text" class="form-control" id="floatingInput" placeholder="Nome Fantasia" [class.is-invalid]="checkFantasyName()">
+            <input formControlName="nomeFantasia" type="text" class="form-control" id="floatingInput" placeholder="Nome Fantasia" [class.is-invalid]="checkFantasyName()">
             <label>Nome Fantasia</label>
             <small *ngIf="checkFantasyName()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <select formControlName="typePerson" class="form-select" id="floatingSelect" aria-label="Tipo pessoa" [class.is-invalid]="checkTypePerson()">
+            <select formControlName="tipoPessoa" class="form-select" id="floatingSelect" aria-label="Tipo pessoa" [class.is-invalid]="checkTypePerson()">
               <option selected disabled></option>
-              <option value="1">Física</option>
-              <option value="2">Jurídica</option>
+              <option value="1">F</option>
+              <option value="2">J</option>
             </select>
             <label for="floatingSelect">Tipo pessoa: </label>
             <small *ngIf="checkTypePerson()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="cpfCnpj" type="text" class="form-control" id="floatingInput" placeholder="CPF ou CNPJ " [class.is-invalid]="checkCpfCnpj()">
+            <input formControlName="cnpjCpf" type="text" class="form-control" id="floatingInput" placeholder="CPF ou CNPJ " [class.is-invalid]="checkCpfCnpj()">
             <label> CPF/CNPJ </label>
             <small *ngIf="checkCpfCnpj()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
             <small *ngIf="checkCpfCnpjValid()" class="text-danger text-start d-block mt-1">*Digite um CPF ou CNPJ valido</small>
@@ -38,24 +38,24 @@
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="address" type="text" class="form-control" id="floatingInput" placeholder="Endereço" [class.is-invalid]="checkAddress()" >
+            <input formControlName="endereco" type="text" class="form-control" id="floatingInput" placeholder="Endereço" [class.is-invalid]="checkAddress()" >
             <label> Endereço </label>
             <small *ngIf="checkAddress()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Complemento">
+            <input type="text" formControlName="complemento" class="form-control" id="floatingInput" placeholder="Complemento">
             <label> Complemento </label>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="neighborhood" type="text" class="form-control" id="floatingInput" placeholder="Bairro" [class.is-invalid]="checkNeighborhood()">
+            <input formControlName="bairro" type="text" class="form-control" id="floatingInput" placeholder="Bairro" [class.is-invalid]="checkNeighborhood()">
             <label> Bairro </label>
             <small *ngIf="checkNeighborhood()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="city" type="text" class="form-control" id="floatingInput" placeholder="Cidade" [class.is-invalid]="checkCity()">
+            <input formControlName="cidade" type="text" class="form-control" id="floatingInput" placeholder="Cidade" [class.is-invalid]="checkCity()">
             <label> Cidade e Estado  </label>
             <small *ngIf="checkCity()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
@@ -68,13 +68,13 @@
           </div>
 
           <div class="form-floating form-item">
-            <input formControlName="number" type="text" class="form-control" id="floatingInput" placeholder="CEP" [class.is-invalid]="checkNumber()">
+            <input formControlName="numero" type="text" class="form-control" id="floatingInput" placeholder="CEP" [class.is-invalid]="checkNumber()">
             <label> Número </label>
             <small *ngIf="checkNumber()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
           <div class="form-floating form-item">
-            <select formControlName="occupation" class="form-select" id="floatingSelect" aria-label="Atuação" [class.is-invalid]="checkOccupation()">
+            <select formControlName="atuacao" class="form-select" id="floatingSelect" aria-label="Atuação" [class.is-invalid]="checkOccupation()">
               <option selected disabled></option>
               <option value="1">atuacao</option>
             </select>
@@ -83,7 +83,7 @@
           </div>
 
           <div class="form-floating form-item">
-            <select formControlName="specialization" class="form-select" id="floatingSelect" aria-label="Especialização" [class.is-invalid]="checkSpecialization()">
+            <select formControlName="especializacao" class="form-select" id="floatingSelect" aria-label="Especialização" [class.is-invalid]="checkSpecialization()">
               <option selected disabled></option>
               <option value="1">Especializações</option>
             </select>
@@ -92,14 +92,22 @@
           </div>
 
           <div class="form-floating form-item">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Url do site">
+            <input type="text" formControlName="urlSite" class="form-control" id="floatingInput" placeholder="Url do site">
             <label> Url do site </label>
           </div>
 
           <div class="mb-3">
             <label for="formFile" class="form-label text-start d-block">Escolha uma imagem que represente sua empresa: </label>
-            <input formControlName="image" class="form-control" type="file" id="formFile" [class.is-invalid]="checkImage()">
+            <input formControlName="imagem" class="form-control" type="file" id="formFile" [class.is-invalid]="checkImage()">
             <small *ngIf="checkImage()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
+          </div>
+
+          <div class="mb-3">
+            <input type="hidden" formControlName="usuarioId">
+          </div>
+
+          <div>
+            <input type="hidden" formControlName="statusId">
           </div>
 
         </div>

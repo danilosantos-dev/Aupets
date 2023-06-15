@@ -94,7 +94,7 @@ public class PrestadorController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Ocorreu um erro no metodo CreatedPrestador: {ex.Message}");
+            _logger.LogError($"Ocorreu um erro no metodo CreatePrestador: {ex.Message}");
             return StatusCode(500, "Erro Interno do Servidor");
         }
     }

@@ -32,83 +32,87 @@ export class CadastroPrestadorComponent {
 
   ngOnInit() {
     this.companyRegisterForm = this.fb.group({
-      socialReason: ['', Validators.required],
-      fantasyName: ['', Validators.required],
-      typePerson: ['', Validators.required],
-      cpfCnpj: [
-        '',
-        Validators.compose([Validators.required, Validators.maxLength(18)]),
+      razaoSocial: ['', Validators.required],
+      nomeFantasia: ['', Validators.required],
+      tipoPessoa: ['', Validators.required],
+      cnpjCpf: ['', Validators.compose([Validators.required, Validators.maxLength(18)]),
       ],
-      address: ['', Validators.required],
-      neighborhood: ['', Validators.required],
-      city: ['', Validators.required],
+      endereco: ['', Validators.required],
+      complemento: [''],
+      bairro: ['', Validators.required],
+      cidade: ['', Validators.required],
       cep: [
         '',
         Validators.compose([Validators.required, Validators.maxLength(8)]),
       ],
-      number: ['', Validators.required],
-      occupation: ['', Validators.required],
-      specialization: ['', Validators.required],
-      image: ['', Validators.required],
+      numero: ['', Validators.required],
+      atuacao: ['', Validators.required],
+      especializacao: ['', Validators.required],
+      urlSite: [''],
+
+      imagem: ['', Validators.required],
+      usuarioId: ['08db6a16-53ae-45db-81b9-e828cbbae5e0'],
+      statusId: [1],
       terms: ['', Validators.required],
     });
+    
   }
 
   //Todo: Funções que checam os campos e se estão validos
 
   checkReason() {
     return (
-      this.companyRegisterForm.controls['socialReason'].dirty &&
-      this.companyRegisterForm.hasError('required', 'socialReason')
+      this.companyRegisterForm.controls['razaoSocial'].dirty &&
+      this.companyRegisterForm.hasError('required', 'razaoSocial')
     );
   }
 
   checkFantasyName() {
     return (
-      this.companyRegisterForm.controls['fantasyName'].dirty &&
-      this.companyRegisterForm.hasError('required', 'fantasyName')
+      this.companyRegisterForm.controls['nomeFantasia'].dirty &&
+      this.companyRegisterForm.hasError('required', 'nomeFantasia')
     );
   }
 
   checkTypePerson() {
     return (
-      this.companyRegisterForm.controls['typePerson'].dirty &&
-      this.companyRegisterForm.hasError('required', 'typePerson')
+      this.companyRegisterForm.controls['tipoPessoa'].dirty &&
+      this.companyRegisterForm.hasError('required', 'tipoPessoa')
     );
   }
 
   checkCpfCnpj() {
     return (
-      this.companyRegisterForm.controls['cpfCnpj'].dirty &&
-      this.companyRegisterForm.hasError('required', 'cpfCnpj')
+      this.companyRegisterForm.controls['cnpjCpf'].dirty &&
+      this.companyRegisterForm.hasError('required', 'cnpjCpf')
     );
   }
 
   checkCpfCnpjValid() {
     return (
-      this.companyRegisterForm.controls['cpfCnpj'].dirty &&
-      this.companyRegisterForm.hasError('maxlength', 'cpfCnpj')
+      this.companyRegisterForm.controls['cnpjCpf'].dirty &&
+      this.companyRegisterForm.hasError('maxlength', 'cnpjCpf')
     );
   }
 
   checkAddress() {
     return (
-      this.companyRegisterForm.controls['address'].dirty &&
-      this.companyRegisterForm.hasError('required', 'address')
+      this.companyRegisterForm.controls['endereco'].dirty &&
+      this.companyRegisterForm.hasError('required', 'endereco')
     );
   }
 
   checkNeighborhood() {
     return (
-      this.companyRegisterForm.controls['neighborhood'].dirty &&
-      this.companyRegisterForm.hasError('required', 'neighborhood')
+      this.companyRegisterForm.controls['bairro'].dirty &&
+      this.companyRegisterForm.hasError('required', 'bairro')
     );
   }
 
   checkCity() {
     return (
-      this.companyRegisterForm.controls['city'].dirty &&
-      this.companyRegisterForm.hasError('required', 'city')
+      this.companyRegisterForm.controls['cidade'].dirty &&
+      this.companyRegisterForm.hasError('required', 'cidade')
     );
   }
 
@@ -127,15 +131,15 @@ export class CadastroPrestadorComponent {
 
   checkNumber() {
     return (
-      this.companyRegisterForm.controls['number'].dirty &&
-      this.companyRegisterForm.hasError('required', 'number')
+      this.companyRegisterForm.controls['numero'].dirty &&
+      this.companyRegisterForm.hasError('required', 'numero')
     );
   }
 
   checkOccupation() {
     return (
-      this.companyRegisterForm.controls['occupation'].dirty &&
-      this.companyRegisterForm.hasError('required', 'occupation')
+      this.companyRegisterForm.controls['atuacao'].dirty &&
+      this.companyRegisterForm.hasError('required', 'atuacao')
     );
   }
 
@@ -143,8 +147,8 @@ export class CadastroPrestadorComponent {
 
   checkImage() {
     return (
-      this.companyRegisterForm.controls['image'].dirty &&
-      this.companyRegisterForm.hasError('required', 'image')
+      this.companyRegisterForm.controls['imagem'].dirty &&
+      this.companyRegisterForm.hasError('required', 'imagem')
     );
   }
 
@@ -176,9 +180,8 @@ export class CadastroPrestadorComponent {
     this.prestadorService.createPrestador(apiUrl, prestador).subscribe( () => {
       this.companyRegisterForm.reset();
       this.messagesService.add('Cadastro realizado com sucesso!');
-    });
+    }, (error) => this.messagesService.add(`Ocorreu um erro: ${error}`));
   }
-
 
   //Percorre o formulario e valida os inputs caso estejam vazios
   private validateAllFormFields(formGroup: FormGroup) {
