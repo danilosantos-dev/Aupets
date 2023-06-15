@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastroPrestadorComponent } from './components/pages/cadastro-prestador/cadastro-prestador.component';
 import { CadastroUsuarioComponent } from './components/pages/cadastro-usuario/cadastro-usuario.component';
@@ -15,9 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroUsuarioComponent },
   { path: 'cadastro-prestador',component: CadastroPrestadorComponent },
-  { path: 'admin', loadChildren:()=> import('../app/modules/admin-module/admin-module.module')
-                    .then(m=>m.AdminModuleModule)},
+  { path: 'admin', loadChildren:()=> import('../app/modules/admin-module/admin-module.module').then(m=>m.AdminModuleModule)},
   { path: 'prestador', component: PrestadorComponent },
+  { path: 'admin/dashboard', component: DashboardComponent},
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
