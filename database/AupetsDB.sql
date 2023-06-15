@@ -12,14 +12,14 @@ CREATE TABLE Usuario
     EAdmin          TINYINT(1) NOT NULL
 );
 
-CREATE TABLE Status 
+CREATE TABLE Status
 (
 	Id 				INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Nome 			VARCHAR(100) NOT NULL
 );
 
 
-CREATE TABLE Especie 
+CREATE TABLE Especie
 (
 	Id 				TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Nome			VARCHAR(30) NOT NULL
@@ -37,12 +37,13 @@ CREATE TABLE Atuacao
     Nome				VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Prestador 
+CREATE TABLE Prestador
 (
 	Id 					INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     RazaoSocial 		VARCHAR(255) NOT NULL,
     NomeFantasia 		VARCHAR(255) NOT NULL,
-    TipoPessoa          CHAR(1) NOT NULL,
+    Sobre               VARCHAR(2000),
+    TipoPessoa          VARCHAR(1) NOT NULL,
     CnpjCpf				VARCHAR(18) NOT NULL,
     Endereco 			VARCHAR(255) NOT NULL,
     Complemento			VARCHAR(255),
@@ -56,7 +57,7 @@ CREATE TABLE Prestador
     UrlSite				VARCHAR(100),
     StatusId			INT UNSIGNED NOT NULL,
     UsuarioId           VARCHAR(300) NOT NULL,
-	CONSTRAINT FK_Prestador_Status	FOREIGN KEY (StatusId)	
+	CONSTRAINT FK_Prestador_Status	FOREIGN KEY (StatusId)
 		REFERENCES Status(Id),
     CONSTRAINT FK_Prestador_Usuario FOREIGN KEY (UsuarioId)
         REFERENCES Usuario(Id)
@@ -105,17 +106,3 @@ ALTER TABLE AtuacaoPrestador ADD CONSTRAINT FK_AtuacaoPrestador_Prestador
     
 ALTER TABLE AtuacaoPrestador ADD CONSTRAINT FK_AtuacaoPrestador_Atuacao
 	FOREIGN KEY (AtuacaoId) REFERENCES Atuacao(Id);
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
