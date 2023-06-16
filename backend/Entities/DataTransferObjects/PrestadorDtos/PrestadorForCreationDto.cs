@@ -47,7 +47,6 @@ namespace Entities.DataTransferObjects
         [Required(ErrorMessage = "Campo obrigatório: Especializacao")]
         public string Especializacao { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório: Imagem")]
         public string Imagem { get; set; }
 
         [StringLength(100, ErrorMessage = "O UrlSite não pode ultrapassar 100 caracteres")]

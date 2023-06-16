@@ -39,7 +39,7 @@ public class PrestadorController : ControllerBase
         }
     }
 
-    [HttpGet("{id}", Name = " GetPrestadorById ")]
+    [HttpGet("{id}", Name = "GetPrestadorById")]
     public IActionResult GetPrestadorById(int id)
     {
         try
@@ -87,6 +87,11 @@ public class PrestadorController : ControllerBase
 
             _repository.Prestador.CreatePrestador(prestadorEntity);
             _repository.Save();
+
+            var usuarioId = Guid.Parse(prestador.UsuarioId);
+            prestadorEntity.Usuario = _repository.Usuario.GetUsuarioById(usuarioId);
+
+            prestadorEntity.Status = _repository.Status.GetStatusById(prestador.StatusId);
 
             var createdPrestador = _mapper.Map<PrestadorDto>(prestadorEntity);
 
