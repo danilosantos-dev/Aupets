@@ -21,6 +21,8 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
 import { AdminModuleModule } from './modules/admin-module/admin-module.module';
 import { MessagesComponent } from './components/messages/messages.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { NotificacoesComponent } from './components/notificacoes/notificacoes.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NotFoundComponent,
     InternalServerComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    PerfilComponent,
+    NotificacoesComponent
   ],
   imports: [
     BrowserModule,

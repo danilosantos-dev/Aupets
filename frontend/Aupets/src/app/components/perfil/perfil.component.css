@@ -82,7 +82,6 @@ body {
 .active{
     background: rgba(230, 182, 9);
 }
-
 .sidebar ul li i{
     min-width: 50px;
     height: 50px;
