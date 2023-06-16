@@ -53,7 +53,7 @@ public class PrestadorController : ControllerBase
             }
             else
             {
-                _logger.LogInfo($"Retornando o especie com Id: {id}.");
+                _logger.LogInfo($"Retornando o prestador com Id: {id}.");
 
                 var prestResult = _mapper.Map<PrestadorDto>(prestador);
                 return Ok(prestResult);
@@ -162,6 +162,37 @@ public class PrestadorController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError($"Ocorreu um erro no método DeletePrestador: {ex.Message}");
+            return StatusCode(500, "Erro Interno do Servidor");
+        }
+    }
+
+    [HttpGet("details/{id}", Name = "GetPrestadorDetailed")]
+    public IActionResult GetPrestadorDetailed(int id)
+    {
+        try
+        {
+            var prestador = _repository.Prestador.GetPrestadorById(id);
+
+            if (prestador is null)
+            {
+                _logger.LogError($"Prestador com Id: {id}, não encontrado.");
+                return NotFound();
+            }
+            else
+            {
+                _logger.LogInfo($"Retornando o prestador com Id: {id}.");
+
+                prestador.Usuario = _repository.Usuario.GetUsuarioById(prestador.UsuarioId);
+
+                prestador.Status = _repository.Status.GetStatusById(prestador.StatusId);
+
+                var prestaResult = _mapper.Map<PrestadorDto>(prestador);
+                return Ok(prestaResult);
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Ocorreu um erro no metodo GetPrestadorById: {ex.Message}");
             return StatusCode(500, "Erro Interno do Servidor");
         }
     }

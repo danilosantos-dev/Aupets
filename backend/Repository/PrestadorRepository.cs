@@ -22,6 +22,12 @@ public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorReposito
             .FirstOrDefault();
     }
 
+    public Prestador GetPrestadorDetailed(int prestaId)
+    {
+        return FindByCondition(presta => presta.Id.Equals(prestaId))
+            .FirstOrDefault();
+    }
+
     public void CreatePrestador(Prestador prestador)
     {
         Create(prestador);
