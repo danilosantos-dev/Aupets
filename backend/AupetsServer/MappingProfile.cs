@@ -27,7 +27,7 @@ public class MappingProfile : Profile
         CreateMap<AtuacaoForCreationDto, Atuacao>();
         CreateMap<AtuacaoForUpdateDto, Atuacao>();
 
-        CreateMap<Prestador, PrestadorDto>();
+        CreateMap<Prestador, PrestadorDto>().ReverseMap();
         CreateMap<PrestadorForCreationDto, Prestador>();
         CreateMap<PrestadorForUpdateDto, Prestador>();
 
