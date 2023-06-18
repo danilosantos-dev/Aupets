@@ -9,7 +9,7 @@ CREATE TABLE Usuario
     SenhaHash       VARCHAR(200) NOT NULL,
     Email       	VARCHAR(100) NOT NULL,
     Imagem       	VARCHAR(400),
-    EAdmin          TINYINT(1) NOT NULL
+    EAdmin          TINYINT(1)
 );
 
 CREATE TABLE Status
@@ -52,7 +52,7 @@ CREATE TABLE Prestador
     Cep					VARCHAR(9),
     Numero				VARCHAR(6) NOT NULL,
     Atuacao				VARCHAR(100),
-	Especializacao		VARCHAR(100) NOT NULL,
+	Especializacao		VARCHAR(100),
     Imagem				VARCHAR(400),
     UrlSite				VARCHAR(100),
     StatusId			INT UNSIGNED NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE Avaliacoes
 (
 	Id					INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	ReviewText			VARCHAR(2000),
-    ReviewDate			DATETIME NOT NULL,
+    ReviewDate			DATETIME,
     Image 				VARCHAR(400),
     Rating 				TINYINT UNSIGNED NOT NULL,
     UsuarioId			VARCHAR(300) NOT NULL,
