@@ -1,49 +1,119 @@
 <body>
-    
-    <div class="sidebar">
-        <div class="logo-content">
-            <div class="logo">
-                <i class='bx bxs-dog'></i>
-                <h3>Aupets</h3>
+
+  <div class="sidebar">
+    <div class="logo-content">
+      <div class="logo">
+        <i class='bx bxs-dog'></i>
+        <h3>Aupets</h3>
+      </div>
+    </div>
+
+    <ul class="list">
+      <li class="list-item ActiveLink">
+        <a class="nav-link" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class='bx bxs-dashboard'></i>
+          <span class="links-name">Dashboard</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a class="nav-link" routerLink="/admin/perfil" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class='bx bxs-user'></i>
+          <span class="links-name">Perfil</span>
+        </a>
+      </li>
+      <li class="list-item">
+        <a class="nav-link" routerLink="/admin/notificacoes" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <i class='bx bxs-bell'></i>
+          <span class="links-name">Notificações</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="list-logout">
+      <li>
+        <a routerLink="/home">
+          <i class='bx bx-log-out'></i>
+          <span class="links-name">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <div class="form">
+        <form>
+          <div class="form-header">
+            <div class="title">
+              <h1>Perfil</h1>
             </div>
-        </div>
+          </div>
 
-        <ul class="list">
-            <li class="list-item ActiveLink">
-                <a class="nav-link" routerLink="/admin" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="links-name">Dashboard</span>
-                </a>
-            </li>
-            <li class="list-item">
-                <a class="nav-link" routerLink="/admin/perfil" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">
-                  <i class='bx bxs-user'></i>
-                    <span class="links-name">Perfil</span>
-                </a>
-            </li>
-            <li class="list-item">
-                <a class="nav-link" routerLink="/admin/notificacoes" routerLinkActive="active"
-                  [routerLinkActiveOptions]="{exact: true}">
-                    <i class='bx bxs-bell' ></i>
-                    <span class="links-name">Notificações</span>
-                </a>
-            </li>
-        </ul>
+          <div class="input-group">
+            <div class="input-box">
+              <label for="firstname">Razão Social</label>
+              <input id="firstname" type="text" name="firstname">
+            </div>
 
-        <ul class="list-logout">
-            <li>
-                <a routerLink="/home">
-                    <i class='bx bx-log-out'></i>
-                    <span class="links-name">Logout</span>
-                </a>
-            </li>
-        </ul>
+            <div class="input-box">
+              <label for="lastname">Nome Fantasia</label>
+              <input id="lastname" type="text" name="lastname" >
+            </div>
+            <div class="input-box">
+              <label for="email">E-mail</label>
+              <input id="email" type="email" name="email" >
+            </div>
+
+            <div class="input-box">
+              <label for="number">Endereço</label>
+              <input id="number" type="tel" name="number" >
+            </div>
+
+            <div class="input-box">
+              <label for="password">Complemento</label>
+              <input id="password" type="password" name="password" >
+            </div>
+
+            <div class="input-box">
+              <label for="email">Bairro</label>
+              <input id="email" type="email" name="email" >
+            </div>
+
+            <div class="input-box">
+              <label for="number">Cidade e Estado</label>
+              <input id="number" type="tel" name="number" >
+            </div>
+
+            <div class="input-box">
+              <label for="confirmPassword">Cep</label>
+              <input id="confirmPassword" type="password" name="confirmPassword">
+            </div>
+
+            <div class="input-box">
+              <label for="confirmPassword">Número</label>
+              <input id="confirmPassword" type="password" name="confirmPassword">
+            </div>
+
+            <div class="input-box">
+              <label for="confirmPassword">Url site (midia social)</label>
+              <input id="confirmPassword" type="password" name="confirmPassword">
+            </div>
+
+            <div class="">
+              <label for="formFile" class="form-label text-start d-block">Alterar imagem: </label>
+              <input formControlName="imagem" class="form-control py-2" type="file" id="formFile">
+            </div>
+
+          </div>
+
+          <div class="continue-button">
+            <button><a href="#">Salvar</a> </button>
+          </div>
+        </form>
+      </div>
     </div>
-
-    <div class="content">
-       danilo
-    </div>
+  </div>
 
 </body>
