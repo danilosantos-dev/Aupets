@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('../app/modules/admin-module/admin-module.module').then(m => m.AdminModuleModule) },
   { path: 'admin/perfil', component: PerfilComponent },
   { path: 'admin/notificacoes', component: NotificacoesComponent },
-  { path: 'prestador', component: PrestadorComponent },
+  { path: 'prestador/:id', component: PrestadorComponent },
   { path: '404', component: NotFoundComponent },
   { path: '500', component: InternalServerComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Prestador } from 'src/app/interfaces/prestador.model';
+import { PrestadorRepositoryService } from 'src/app/shared/services/prestador-repository.service';
 
 
 @Component({
@@ -9,9 +11,26 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router){}
+  prestadores!: Prestador[];
+
+
+  constructor(private router: Router, private prestadorService: PrestadorRepositoryService) { }
 
   ngOnInit(): void {
+    this.getAllPrestadores();
+  }
+
+  private getAllPrestadores = () => {
+    const apiAddress: string = 'api/prestador';
+    this.prestadorService.getPrestadores(apiAddress)
+      .subscribe({
+        next: (prest: Prestador[]) => this.prestadores = prest,
+      })
+  }
+
+  redirectToPrestPage(id: number){
+      const prestUrl: string = `/prestador/${id}`
+      this.router.navigate([prestUrl]);
   }
 
   goToNextPage() {
