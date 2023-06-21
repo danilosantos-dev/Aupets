@@ -7,6 +7,7 @@ namespace Entities.DataTransferObjects
         public int Id { get; set; }
         public string RazaoSocial { get; set; }
         public string NomeFantasia { get; set; }
+        public string Sobre { get; set; }
         public string TipoPessoa { get; set; }
         public string CnpjCpf { get; set; }
         public string Endereco { get; set; }

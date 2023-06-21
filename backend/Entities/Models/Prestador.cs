@@ -17,6 +17,9 @@ public class Prestador
     [StringLength(255)]
     public string NomeFantasia { get; set; }
 
+    [StringLength(2000)]
+    public string Sobre { get; set; }
+
     [Required]
     [StringLength(1)]
     public string TipoPessoa { get; set; }

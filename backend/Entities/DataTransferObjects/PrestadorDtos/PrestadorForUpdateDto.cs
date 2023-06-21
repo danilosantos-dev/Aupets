@@ -11,6 +11,9 @@ namespace Entities.DataTransferObjects
         [Required(ErrorMessage = "Campo obrigatório: Nome Fantasia")]
         [StringLength(60, ErrorMessage = "O Nome Fantasia não pode ultrapassar 60 caracteres")]
         public string NomeFantasia { get; set; }
+        
+        [StringLength(2000, ErrorMessage = "Sobre não pode ultrapassar 60 caracteres")]
+        public string Sobre { get; set; }
 
         [Required(ErrorMessage = "Escolha uma opção:")]
         public string TipoPessoa { get; set; }
