@@ -11,20 +11,20 @@ import { PrestadorRepositoryService } from 'src/app/shared/services/prestador-re
 export class PrestadorComponent {
 
   prestador!: Prestador;
-  
+
   constructor(private prestadorService: PrestadorRepositoryService, private activatedRoute: ActivatedRoute){
   }
-  
+
   ngOnInit(): void{
     this.getPrestador();
   }
 
   getPrestador(){
     const id = this.activatedRoute.snapshot.params['id'];
-    const apiUrl: string = `api/prestador/${id}/account`;
+    const apiUrl: string = `api/prestador/${id}`;
 
     this.prestadorService.getPrestadorById(apiUrl).subscribe({
-      next: (prest: Prestador) => this.prestador = prest  
+      next: (prest: Prestador) => this.prestador = prest
     })
   }
 

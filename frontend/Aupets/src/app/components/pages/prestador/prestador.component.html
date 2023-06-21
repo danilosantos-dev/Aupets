@@ -1,63 +1,86 @@
-<header class="p-3 ">
+<header class="p-3">
   <div class="container">
-
     <div class="nome-empresa d-block mt-3">
-      <a routerLink="/" class="d-block text-start" title="voltar" ><i class='bx bx-left-arrow-alt'></i></a>
+      <a routerLink="/" class="d-block text-start" title="voltar"
+        ><i class="bx bx-left-arrow-alt"></i
+      ></a>
 
-      <h3> {{prestador.nomeFantasia}}</h3>
+      <h3>{{ prestador.nomeFantasia }}</h3>
     </div>
 
     <div class="container-fluid header-img">
-      <img class="imagem-empresa" src="./../../../../assets/img/cards/mudbay.jpg" alt="Imagem da empresa">
+      <img
+        class="imagem-empresa"
+        src="{{ prestador.imagem }}"
+        alt="Imagem da empresa"
+      />
     </div>
-
   </div>
 </header>
 
 <section class="page-section about">
   <div class="container">
     <div class="text-center">
-
       <h2 class="section-heading text-uppercase">Que serviços oferecemos ?</h2>
-      <p> only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It
-        was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-        more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      <p *ngIf="prestador.sobre; else sobreTemplate">
+        {{ prestador.sobre }}
       </p>
+
+      <ng-template #sobreTemplate>
+        <p>
+          Bem-vindo à nossa página dedicada aos amados pets! Aqui, celebramos a
+          incrível conexão que temos com os animais de estimação e fornecemos um
+          espaço repleto de informações, orientações e inspiração para tornar a
+          vida do seu peludo ainda mais especial.
+        </p>
+      </ng-template>
     </div>
   </div>
 </section>
 
 <section class="page-section">
-  <div class="container ">
-
+  <div class="container">
     <div class="text-center endereco">
-
       <h2 class="section-heading text-uppercase">Endereço</h2>
 
       <div class="endereco-container">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.938115477287!2d-48.56091302449699!3d-22.468959722370794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c74561d316a0b5%3A0xd02aa462debc1c9!2sR.%20Prac.%20Arc%C3%ADlio%20Paschoal%2C%20Barra%20Bonita%20-%20SP%2C%2017340-000!5e0!3m2!1spt-BR!2sbr!4v1683672759036!5m2!1spt-BR!2sbr"
-         allowfullscreen=""
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
         </iframe>
 
-
-        <p>Cidade: São Lomeu </p>
-        <p>Bairro: Jardim fulano de tal</p>
-        <p>Rua: 1 de setembro - N°3</p>
+        <p>{{ prestador.cidade }}</p>
+        <p>{{ prestador.bairro }}</p>
+        <p>{{ prestador.endereco }} -N° {{ prestador.numero }}</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="page-section">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Acesse nossa página</h2>
 
+      <a
+        href="https://{{ prestador.urlSite }}"
+        target="blank"
+        class="btn btn-dark btn-lg text-white rounded-circle"
+        ><i class="bx bx-link"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Avaliações</h2>
 
       <a href="#" class="btn btn-warning btn-lg text-white">Avaliar +</a>
     </div>
-
   </div>
 </section>

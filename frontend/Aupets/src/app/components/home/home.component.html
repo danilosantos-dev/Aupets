@@ -78,16 +78,16 @@
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-      <div class="col">
+      <div class="col" *ngFor="let prestador of prestadores">
 
-        <div class="card shadow-sm" style="max-height: 350px;" *ngFor="let prestador of prestadores" >
+        <div class="card shadow-sm" style="max-height: 350px; max-width: 400px;"  >
           <img class="bd-placeholder-img card-img-top" src="{{prestador.imagem}}" alt="" width="100%" height="225">
             <title>Card Prestador</title>
           <div class="card-body">
             <h5 class="card-title"> {{prestador.nomeFantasia}} </h5>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <a type="button" class="btn btn-dark" (click)="goToNextPage()" (click)="redirectToPrestPage(prestador.id)">Saiba mais</a>
+                <a type="button" class="btn btn-dark" (click)="redirectToPrestPage(prestador.id!)">Saiba mais</a>
               </div>
             </div>
           </div>
