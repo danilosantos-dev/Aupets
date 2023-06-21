@@ -17,5 +17,5 @@ export interface Prestador{
   urlSite?: string,
   status: string,
   usuario: string,
-  
+  sobre: string
 }

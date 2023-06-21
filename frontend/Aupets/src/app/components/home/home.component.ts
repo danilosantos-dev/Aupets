@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
 
   redirectToPrestPage(id: number){
       const prestUrl: string = `/prestador/${id}`
+      window.scrollTo(0, 0);
       this.router.navigate([prestUrl]);
+
   }
 
   goToNextPage() {

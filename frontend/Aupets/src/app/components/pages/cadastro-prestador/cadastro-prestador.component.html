@@ -76,7 +76,7 @@
           <div class="form-floating form-item">
             <select formControlName="atuacao" class="form-select" id="floatingSelect" aria-label="Atuação" [class.is-invalid]="checkOccupation()">
               <option selected disabled></option>
-              <option value="1">atuacao</option>
+              <option value="1"></option>
             </select>
             <label for="floatingSelect">Atuação: </label>
             <small *ngIf="checkOccupation()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
@@ -85,7 +85,11 @@
           <div class="form-floating form-item">
             <select formControlName="especializacao" class="form-select" id="floatingSelect" aria-label="Especialização" [class.is-invalid]="checkSpecialization()">
               <option selected disabled></option>
-              <option value="1">Especializações</option>
+              <option value="1">Hospedagem</option>
+              <option value="2">Adestramento</option>
+              <option value="3">PetShop</option>
+              <option value="4">Banho e Tosa</option>
+              <option value="5">Veterinário</option>
             </select>
             <label for="floatingSelect">Especialização: </label>
             <small *ngIf="checkSpecialization()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
