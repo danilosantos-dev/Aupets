@@ -9,5 +9,5 @@ public interface IUsuarioRepository : IRepositoryBase<Usuario>
     void UpdateUsuario(Usuario usuario);
     void DeleteUsuario(Usuario usuario);
     Usuario GetByEmail(string email);
-    bool Login(string email, string senha);
+    string Login(string email, string senha);
 }

@@ -2,8 +2,10 @@
 using Entities;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Web;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 
 namespace Repository;
 public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
@@ -49,15 +51,14 @@ public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
             .FirstOrDefault();
     }
 
-    public bool Login(string email, string senha)
+    public string Login(string email, string senha)
     {
         var usuario = GetByEmail(email);
         if(usuario == null)
         {
-            return false;
+            return null;
         }
         var hash = new PasswordHasher<Usuario>();
-        var x = hash.VerifyHashedPassword(usuario, usuario.Senha, senha) == PasswordVerificationResult.Success;
-        return x;
+        return hash.VerifyHashedPassword(usuario, usuario.Senha, senha) == PasswordVerificationResult.Success ? usuario.Id.ToString() : null;
     }
 }
