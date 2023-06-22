@@ -173,7 +173,7 @@ namespace AupetsServer.Controllers
         {
             try
             {
-                if (!_repository.Usuario.Login(usuario.Email, usuario.Senha))
+                if (_repository.Usuario.Login(usuario.Email, usuario.Senha) is null)
                 {
                     _logger.LogError("Ocorreu um erro no método de login");
                     return BadRequest("Usuario ou senha inválidos.");
