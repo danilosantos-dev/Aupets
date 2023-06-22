@@ -32,13 +32,7 @@ export class HomeComponent implements OnInit {
       const prestUrl: string = `/prestador/${id}`
       window.scrollTo(0, 0);
       this.router.navigate([prestUrl]);
-
   }
 
-  goToNextPage() {
-    this.router.navigate(['/prestador']).then(() => {
-      window.scrollTo(0, 0); // Rola para o topo da nova página
-    });
-  }
 
 }

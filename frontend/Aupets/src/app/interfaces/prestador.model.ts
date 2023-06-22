@@ -1,6 +1,6 @@
 
 export interface Prestador{
-  id?: number ,
+  id: number ,
   razaoSocial: string,
   nomeFantasia: string,
   tipoPessoa: string,
