@@ -72,7 +72,8 @@ export class LoginComponent {
   fazerLogin(): void{
     const apiUrl = 'api/usuario/login'
     const requestLogin: RequestLogin = this.loginForm.value;
-    this.authService.Login(apiUrl, requestLogin).subscribe(()=>{
+    this.authService.Login(apiUrl, requestLogin).subscribe((dados)=>{
+      console.log(dados);
       this.router.navigate(['/home']);
     }, () => {this.messagesService.add('Email ou senha invalidos')})
   }

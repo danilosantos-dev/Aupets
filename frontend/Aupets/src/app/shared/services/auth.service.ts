@@ -11,6 +11,7 @@ import { RequestLogin } from 'src/app/interfaces/RequestLogin.model';
 export class AuthService {
 
   private isAuthenticated: boolean = false;
+  private loggedInUserId!: string;
 
   constructor(
     private http: HttpClient,
@@ -32,6 +33,14 @@ export class AuthService {
 
   public isLogged(){
     return this.isAuthenticated;
+  }
+
+  public setLoggedInUserId(userId :string): void{
+    this.loggedInUserId = userId;
+  }
+
+  public getLoggedInUserId(): string{
+    return this.loggedInUserId;
   }
 
   private createCompleteRoute = (route: string, envAddress: string) => {

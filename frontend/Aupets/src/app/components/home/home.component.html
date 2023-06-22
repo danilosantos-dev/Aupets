@@ -78,9 +78,9 @@
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-      <div class="col">
+      <div class="col" *ngFor="let prestador of prestadores">
 
-        <div class="card shadow-sm" style="max-height: 350px;" *ngFor="let prestador of prestadores" >
+        <div class="card shadow-sm" style="max-height: 350px;"  >
           <img class="bd-placeholder-img card-img-top" src="{{prestador.imagem}}" alt="" width="100%" height="225">
             <title>Card Prestador</title>
           <div class="card-body">

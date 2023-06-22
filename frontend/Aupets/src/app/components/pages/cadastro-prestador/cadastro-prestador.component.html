@@ -91,12 +91,16 @@
           <div class="form-floating form-item">
             <select formControlName="especializacao" class="form-select" id="floatingSelect" aria-label="Especialização" [class.is-invalid]="checkSpecialization()">
               <option selected disabled></option>
-              <option value="1"></option>
-              <option value="2"></option>
-              <option value="3"></option>
-              <option value="4"></option>
-              <option value="5"></option>
-              <option value="6"></option>
+              <option value="1">Raças de Pequeno Porte</option>
+              <option value="2">Comportamental </option>
+              <option value="3">Socialização Animal</option>
+              <option value="4">Oftamologia</option>
+              <option value="5">Dermatologia</option>
+              <option value="6">Confeitaria para Felinos e Caninos</option>
+              <option value="7">Animais de Pelagem Grande</option>
+              <option value="8">Felinos</option>
+              <option value="9">Aves</option>
+
             </select>
             <label for="floatingSelect">Especialização: </label>
             <small *ngIf="checkSpecialization()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
@@ -115,10 +119,6 @@
 
           <div class="mb-3">
             <input type="hidden" formControlName="usuarioId">
-          </div>
-
-          <div>
-            <input type="hidden" formControlName="statusId">
           </div>
 
         </div>

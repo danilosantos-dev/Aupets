@@ -51,11 +51,11 @@ export class CadastroPrestadorComponent {
       urlSite: [''],
 
       imagem: ['', Validators.required],
-      usuarioId: ['08db6a16-53ae-45db-81b9-e828cbbae5e0'],
+      usuarioId: [''],
       statusId: [1],
       terms: ['', Validators.required],
     });
-    
+
   }
 
   //Todo: Funções que checam os campos e se estão validos
