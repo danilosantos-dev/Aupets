@@ -74,11 +74,11 @@ export class LoginComponent {
     const requestLogin: RequestLogin = this.loginForm.value;
     this.authService.Login(apiUrl, requestLogin).subscribe({
       next: (res) => {
-        console.log(res.id);
         localStorage.setItem('userId', res.id);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
-        console.log(err.error);
+        this.messagesService.add(err.error);
       }
     });
   }

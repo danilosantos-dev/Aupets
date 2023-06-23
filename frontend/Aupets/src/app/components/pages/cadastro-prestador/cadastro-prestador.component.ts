@@ -51,7 +51,7 @@ export class CadastroPrestadorComponent {
       urlSite: [''],
 
       imagem: ['', Validators.required],
-      usuarioId: ['08db71e1-738e-4866-8565-5edda6b51e5a'],
+      usuarioId: [localStorage.getItem('userId')],
       statusId: [1],
       terms: ['', Validators.required],
     });

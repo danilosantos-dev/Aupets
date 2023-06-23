@@ -28,19 +28,11 @@ export class AuthService {
   }
 
   public LogOut() {
-    this.isAuthenticated = false;
+    localStorage.removeItem('userId');
   }
 
   public isLogged(){
     return this.isAuthenticated;
-  }
-
-  public setLoggedInUserId(userId :string): void{
-    this.loggedInUserId = userId;
-  }
-
-  public getLoggedInUserId(): string{
-    return this.loggedInUserId;
   }
 
   private createCompleteRoute = (route: string, envAddress: string) => {
