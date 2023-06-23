@@ -168,12 +168,12 @@ namespace AupetsServer.Controllers
             }
         }
 
-        [HttpPost("{login}", Name = "Login")]
+        [HttpPost("login", Name = "Login")]
         public IActionResult Login([FromBody] LoginDto usuario)
         {
             try
             {
-                var logg = _repository.Usuario.Login(usuario.Email, usuario.Senha);
+                string logg = _repository.Usuario.Login(usuario.Email, usuario.Senha);
 
                 if (logg is null)
                 {
@@ -181,7 +181,7 @@ namespace AupetsServer.Controllers
                     return BadRequest("Usuario ou senha inválidos.");
                 }
                 
-                return Ok(logg);
+                return Ok(new {Id = logg});
             }
             catch (Exception ex)
             {

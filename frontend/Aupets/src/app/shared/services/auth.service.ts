@@ -20,7 +20,7 @@ export class AuthService {
 
   public Login(route: string, requestLogin: RequestLogin) {
     this.isAuthenticated = true;
-    return this.http.post<Usuario>(
+    return this.http.post<any>(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
       requestLogin,
       this.generateHeaders()

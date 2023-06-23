@@ -72,10 +72,15 @@ export class LoginComponent {
   fazerLogin(): void{
     const apiUrl = 'api/usuario/login'
     const requestLogin: RequestLogin = this.loginForm.value;
-    this.authService.Login(apiUrl, requestLogin).subscribe((dados)=>{
-      console.log(dados);
-      this.router.navigate(['/home']);
-    }, () => {this.messagesService.add('Email ou senha invalidos')})
+    this.authService.Login(apiUrl, requestLogin).subscribe({
+      next: (res) => {
+        console.log(res.id);
+        localStorage.setItem('userId', res.id);
+      },
+      error: (err) => {
+        console.log(err.error);
+      }
+    });
   }
 
   //Percorre o formulario e valida os inputs caso estejam vazios
