@@ -6,7 +6,7 @@ export interface Prestador{
   tipoPessoa: string,
   cnpjCpf: string,
   endereco: string,
-  complemento?: string,
+  complemento: string,
   bairro: string,
   cidade: string,
   cep: string,
@@ -14,7 +14,7 @@ export interface Prestador{
   atuacao: string,
   especializacao: string,
   imagem: string,
-  urlSite?: string,
+  urlSite: string,
   status: string,
   usuario: string,
   sobre: string

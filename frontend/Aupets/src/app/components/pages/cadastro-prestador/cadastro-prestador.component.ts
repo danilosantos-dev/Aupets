@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Prestador } from 'src/app/interfaces/prestador.model';
 import { PrestadorForCreation } from 'src/app/interfaces/prestadorForCreation.mode';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MessagesService } from 'src/app/shared/services/messages.service';
@@ -163,7 +164,8 @@ export class CadastroPrestadorComponent {
     if (this.companyRegisterForm.valid) {
       //ENVIAR DADOS PARA A API
       if (this.authService.isLogged()) {
-        this.criarPrestador();
+        const form = this.companyRegisterForm.value;
+        this.criarPrestador(form);
       } else {
         this.messagesService.add('Realize login primeiro!')
         this.router.navigate(['/login']);
@@ -174,10 +176,28 @@ export class CadastroPrestadorComponent {
     }
   }
 
-  criarPrestador(): void {
+  criarPrestador(prestador: PrestadorForCreation) { 
+
+    const formData = new FormData();
+    
+    formData.append('NomeFantasia', prestador.nomeFantasia);
+    formData.append('RazaoSocial', prestador.razaoSocial);
+    formData.append('TipoPessoa', prestador.tipoPessoa);
+    formData.append('CnpjCpf', prestador.cnpjCpf);
+    formData.append('Endereco', prestador.endereco);
+    formData.append('Complemento', prestador.complemento);
+    formData.append('Bairro', prestador.bairro);
+    formData.append('Cidade', prestador.cidade);
+    formData.append('Cep', prestador.cep);
+    formData.append('Numero', prestador.numero);
+    formData.append('Atuacao', prestador.atuacao);
+    formData.append('Especializacao', prestador.especializacao);
+    formData.append('Imagem', prestador.imagem);
+    formData.append('UrlSite', prestador.urlSite);
+    formData.append('Sobre', prestador.sobre);
+
     const apiUrl = 'api/prestador'
-    const prestador: PrestadorForCreation = this.companyRegisterForm.value;
-    this.prestadorService.createPrestador(apiUrl, prestador).subscribe({
+    this.prestadorService.createPrestador(apiUrl, formData ).subscribe({
       next: () => {
         this.companyRegisterForm.reset();
         this.messagesService.add('Cadastro realizado com sucesso!');

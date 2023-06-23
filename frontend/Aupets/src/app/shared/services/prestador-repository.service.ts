@@ -26,13 +26,14 @@ export class PrestadorRepositoryService {
     );
   };
 
-  public createPrestador = (route: string, prestador: PrestadorForCreation) => {
-    return this.http.post<Prestador>(
+  public createPrestador = (route: string, formData: FormData) => {
+    return this.http.post<FormData>(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
-      prestador,
+      formData,
       this.generateHeaders()
     );
   };
+  
   public updatePrestador = (route: string, prestador: Prestador) => {
     return this.http.put(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
