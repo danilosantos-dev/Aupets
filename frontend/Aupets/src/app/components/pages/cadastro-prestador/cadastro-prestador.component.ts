@@ -28,7 +28,7 @@ export class CadastroPrestadorComponent {
     private router: Router,
     private messagesService: MessagesService
 
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.companyRegisterForm = this.fb.group({
@@ -143,7 +143,7 @@ export class CadastroPrestadorComponent {
     );
   }
 
-  checkSpecialization() {}
+  checkSpecialization() { }
 
   checkImage() {
     return (
@@ -162,9 +162,9 @@ export class CadastroPrestadorComponent {
   onSubmit() {
     if (this.companyRegisterForm.valid) {
       //ENVIAR DADOS PARA A API
-      if(this.authService.isLogged()){
+      if (this.authService.isLogged()) {
         this.criarPrestador();
-      }else{
+      } else {
         this.messagesService.add('Realize login primeiro!')
         this.router.navigate(['/login']);
       }
@@ -177,10 +177,15 @@ export class CadastroPrestadorComponent {
   criarPrestador(): void {
     const apiUrl = 'api/prestador'
     const prestador: PrestadorForCreation = this.companyRegisterForm.value;
-    this.prestadorService.createPrestador(apiUrl, prestador).subscribe( () => {
-      this.companyRegisterForm.reset();
-      this.messagesService.add('Cadastro realizado com sucesso!');
-    }, (error) => this.messagesService.add(`Ocorreu um erro: ${error}`));
+    this.prestadorService.createPrestador(apiUrl, prestador).subscribe({
+      next: () => {
+        this.companyRegisterForm.reset();
+        this.messagesService.add('Cadastro realizado com sucesso!');
+      },
+      error: (err) => {
+        this.messagesService.add(err.error);
+      }
+    });
   }
 
   //Percorre o formulario e valida os inputs caso estejam vazios
