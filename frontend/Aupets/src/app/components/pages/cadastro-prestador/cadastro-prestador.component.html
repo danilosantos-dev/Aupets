@@ -111,9 +111,9 @@
             <label> Url do site </label>
           </div>
 
-          <div class="mb-3">
-            <label for="formFile" class="form-label text-start d-block">Escolha uma imagem que represente sua empresa: </label>
-            <input formControlName="imagem" class="form-control" type="file" id="formFile" [class.is-invalid]="checkImage()">
+          <div class="form-floating form-item">
+            <input formControlName="imagem" type="text" class="form-control" id="floatingInput" placeholder="Imagem" [class.is-invalid]="checkImage()" >
+            <label> Url da imagem </label>
             <small *ngIf="checkImage()" class="text-danger text-start d-block mt-1">*Campo Obrigatório</small>
           </div>
 
