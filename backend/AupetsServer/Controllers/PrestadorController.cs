@@ -67,7 +67,7 @@ public class PrestadorController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreatePrestador([FromBody] PrestadorForCreationDto prestador)
+    public IActionResult CreatePrestador([FromForm] PrestadorForCreationDto prestador)
     {
         try
         {
@@ -85,7 +85,7 @@ public class PrestadorController : ControllerBase
 
             var prestadorEntity = _mapper.Map<Prestador>(prestador);
 
-            _repository.Prestador.CreatePrestador(prestadorEntity);
+            _repository.Prestador.CreatePrestadorWithImagem(prestadorEntity, prestador.Imagem?.OpenReadStream());
             _repository.Save();
 
             var usuarioId = Guid.Parse(prestador.UsuarioId);
@@ -106,7 +106,7 @@ public class PrestadorController : ControllerBase
 
 
     [HttpPut("{id}")]
-    public IActionResult UpdatePrestador(int id, [FromBody] PrestadorForUpdateDto prestador)
+    public IActionResult UpdatePrestador(int id, [FromForm] PrestadorForUpdateDto prestador)
     {
         try
         {
@@ -131,7 +131,7 @@ public class PrestadorController : ControllerBase
 
             _mapper.Map(prestador, prestEntity);
 
-            _repository.Prestador.UpdatePrestador(prestEntity);
+            _repository.Prestador.UpdatePrestadorWithImagem(prestEntity, prestador.Imagem?.OpenReadStream());
             _repository.Save();
 
             return NoContent();

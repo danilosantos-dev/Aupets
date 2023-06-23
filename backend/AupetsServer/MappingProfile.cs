@@ -28,8 +28,12 @@ public class MappingProfile : Profile
         CreateMap<AtuacaoForUpdateDto, Atuacao>();
 
         CreateMap<Prestador, PrestadorDto>().ReverseMap();
-        CreateMap<PrestadorForCreationDto, Prestador>();
-        CreateMap<PrestadorForUpdateDto, Prestador>();
+        CreateMap<PrestadorForCreationDto, Prestador>()
+            .ForMember(dest => dest.Imagem, 
+                map => map.MapFrom(src => src.Imagem.FileName));
+        CreateMap<PrestadorForUpdateDto, Prestador>()
+            .ForMember(dest => dest.Imagem, 
+                map => map.MapFrom(src => src.Imagem.FileName));
 
         CreateMap<Avaliacoes, AvaliacaoDto>();
         CreateMap<AvaliacaoForCreationDto, Avaliacoes>();

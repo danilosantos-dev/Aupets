@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Entities.DataTransferObjects
 {
@@ -51,7 +52,7 @@ namespace Entities.DataTransferObjects
         public string Especializacao { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório: Imagem")]
-        public string Imagem { get; set; }
+        public IFormFile Imagem { get; set; }
 
         [StringLength(100, ErrorMessage = "A Url não pode ultrapassar 100 caracteres")]
         public string UrlSite { get; set; }
