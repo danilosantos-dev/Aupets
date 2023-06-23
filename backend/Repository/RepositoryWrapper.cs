@@ -1,3 +1,4 @@
+using Azure.Storage.Blobs;
 using Contracts;
 using Entities;
 
@@ -5,6 +6,7 @@ namespace Repository;
 public class RepositoryWrapper : IRepositoryWrapper
 {
     private RepositoryContext _repoContext;
+    private BlobServiceClient _blobServiceClient;
     private IAtuacaoPrestadorRepository _atuacaoPrestador;
     private IAtuacaoRepository _atuacao;
     private IAvaliacaoRepository _avaliacao;
@@ -99,7 +101,7 @@ public class RepositoryWrapper : IRepositoryWrapper
         {
             if (_prestador == null)
             {
-                _prestador = new PrestadorRepository(_repoContext);
+                _prestador = new PrestadorRepository(_repoContext, _blobServiceClient);
             }
 
             return _prestador;
@@ -132,9 +134,10 @@ public class RepositoryWrapper : IRepositoryWrapper
         }
     }
 
-    public RepositoryWrapper(RepositoryContext repositoryContext)
+    public RepositoryWrapper(RepositoryContext repositoryContext, BlobServiceClient blobServiceClient)
     {
         _repoContext = repositoryContext;
+        _blobServiceClient = blobServiceClient;
     }
 
     public void Save()

@@ -2,6 +2,7 @@ using Contracts;
 using LoggerService;
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Azure;
 using Repository;
 
 namespace AupetsServer.Extensions;
@@ -37,6 +38,14 @@ public static class ServiceExtensions
         var serverVersion = ServerVersion.AutoDetect(conn);
         services.AddDbContext<RepositoryContext>(
             o => o.UseMySql(conn, serverVersion));
+    }
+
+    public static void ConfigureAzureBlob(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAzureClients(clientBuilder =>
+        {
+            clientBuilder.AddBlobServiceClient(configuration["azureBlob:connectionString"]);
+        });
     }
 
     public static void ConfigureRepositoryWrapper(this IServiceCollection services)
