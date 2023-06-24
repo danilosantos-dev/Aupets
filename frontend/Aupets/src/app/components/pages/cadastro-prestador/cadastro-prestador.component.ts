@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Prestador } from 'src/app/interfaces/prestador.model';
 import { PrestadorForCreation } from 'src/app/interfaces/prestadorForCreation.mode';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MessagesService } from 'src/app/shared/services/messages.service';
@@ -20,8 +19,7 @@ import { PrestadorRepositoryService } from 'src/app/shared/services/prestador-re
 })
 export class CadastroPrestadorComponent {
   companyRegisterForm!: FormGroup;
-
-
+  
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -219,4 +217,5 @@ export class CadastroPrestadorComponent {
       }
     });
   }
+  
 }

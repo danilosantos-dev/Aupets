@@ -27,7 +27,7 @@ export class PrestadorRepositoryService {
   };
 
   public createPrestador = (route: string, formData: FormData) => {
-    return this.http.post<FormData>(
+    return this.http.post<PrestadorForCreation>(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
       formData,
       this.generateHeaders()
