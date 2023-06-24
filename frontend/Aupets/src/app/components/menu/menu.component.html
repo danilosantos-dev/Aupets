@@ -14,11 +14,17 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="." [fragment]="'parceiros'" skipLocationChange>Parceiros</a>
         </li>
-        <li class="nav-item btn btn-dark ">
+        <li class="nav-item btn btn-dark " *ngIf="!authService.isLogged()">
           <a class="nav-link" routerLink='/login'>Login</a>
         </li>
-        <li class="nav-item btn btn-dark ">
+        <li class="nav-item btn btn-dark " *ngIf="!authService.isLogged()">
           <a class="nav-link" routerLink="/cadastro">Cadastrar</a>
+        </li>
+        <li class="nav-item btn btn-dark " *ngIf="authService.isLogged()">
+          <a class="nav-link" routerLink="/admin">Perfil</a>
+        </li>
+        <li class="nav-item btn btn-dark " *ngIf="authService.isLogged()">
+          <a class="nav-link" (click)="authService.LogOut()">Logout</a>
         </li>
       </ul>
 

@@ -25,6 +25,7 @@ export class AuthService {
 
   public LogOut() {
     localStorage.removeItem('userId');
+    window.location.reload();
   }
 
   public isLogged(){
