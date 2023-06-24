@@ -10,8 +10,6 @@ import { RequestLogin } from 'src/app/interfaces/RequestLogin.model';
 })
 export class AuthService {
 
-  private loggedInUserId!: string;
-
   constructor(
     private http: HttpClient,
     private envUrl: EnvironmentUrlService
