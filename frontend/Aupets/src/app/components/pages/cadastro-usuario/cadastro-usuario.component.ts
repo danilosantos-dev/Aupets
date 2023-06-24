@@ -5,6 +5,7 @@ import { UsuarioRepositoryService } from 'src/app/shared/services/usuario-reposi
 import { UsuarioForCreation } from 'src/app/interfaces/usuarioForCreation.model';
 import { MessagesService } from 'src/app/shared/services/messages.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -18,7 +19,8 @@ export class CadastroUsuarioComponent {
     private fb: FormBuilder,
     private usuarioService: UsuarioRepositoryService,
     private messagesService: MessagesService,
-    private router : Router
+    private router : Router,
+    private authService: AuthService
 
   ) { }
 

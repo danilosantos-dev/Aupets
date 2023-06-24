@@ -10,7 +10,6 @@ import { RequestLogin } from 'src/app/interfaces/RequestLogin.model';
 })
 export class AuthService {
 
-  private isAuthenticated: boolean = false;
   private loggedInUserId!: string;
 
   constructor(
@@ -19,7 +18,6 @@ export class AuthService {
   ) {}
 
   public Login(route: string, requestLogin: RequestLogin) {
-    this.isAuthenticated = true;
     return this.http.post<any>(
       this.createCompleteRoute(route, this.envUrl.urlAddress),
       requestLogin,
@@ -32,7 +30,10 @@ export class AuthService {
   }
 
   public isLogged(){
-    return this.isAuthenticated;
+    var uId = localStorage.getItem('userId');
+    if (uId == null){
+      return false
+    } else return true
   }
 
   private createCompleteRoute = (route: string, envAddress: string) => {
