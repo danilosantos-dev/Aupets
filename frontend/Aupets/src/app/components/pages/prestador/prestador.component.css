@@ -1,6 +1,7 @@
 header {
   background-color: rgb(31, 31, 31);
   height: 350px;
+  margin-bottom: 400px;
 }
 
 .nome-empresa{
@@ -22,19 +23,19 @@ header {
 .header-img{
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .imagem-empresa {
   position: absolute;
   top: 150px;
-  width: 70%;
-  height: 500px;
+  width: 50%;
 }
 
 .about{
   display: flex;
   margin: 0 auto;
-  margin-top: 350px;
+  
   width: 70%;
 }
 .endereco{

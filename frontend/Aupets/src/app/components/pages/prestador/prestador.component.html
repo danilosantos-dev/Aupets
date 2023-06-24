@@ -8,7 +8,7 @@
       <h3>{{ prestador.nomeFantasia }}</h3>
     </div>
 
-    <div class="container-fluid header-img">
+    <div class="container header-img">
       <img
         class="imagem-empresa"
         src="{{ prestador.imagem }}"
@@ -21,7 +21,7 @@
 <section class="page-section about">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-heading text-uppercase">Que serviços oferecemos ?</h2>
+      <h2 class="section-heading text-uppercase">Sobre </h2>
       <p *ngIf="prestador.sobre; else sobreTemplate">
         {{ prestador.sobre }}
       </p>
@@ -52,9 +52,9 @@
         >
         </iframe>
 
-        <p>{{ prestador.cidade }}</p>
-        <p>{{ prestador.bairro }}</p>
-        <p>{{ prestador.endereco }} -N° {{ prestador.numero }}</p>
+        <p>Cidade: {{ prestador.cidade }}</p>
+        <p>Bairro: {{ prestador.bairro }}</p>
+        <p>Endereço: {{ prestador.endereco }} - {{ prestador.numero }}</p>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
       <h2 class="section-heading text-uppercase">Acesse nossa página</h2>
 
       <a
-        href="https://{{ prestador.urlSite }}"
+        href="{{ prestador.urlSite }}"
         target="blank"
         class="btn btn-dark btn-lg text-white rounded-circle"
         ><i class="bx bx-link"></i>
