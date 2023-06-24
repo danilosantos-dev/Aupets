@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   isCollapsed: boolean = false;
+
+  constructor (public authService: AuthService) {}
 
   // //scrool da pagina
   // scrollTo(element: any): void {
