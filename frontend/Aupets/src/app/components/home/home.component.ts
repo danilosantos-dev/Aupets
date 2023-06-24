@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Prestador } from 'src/app/interfaces/prestador.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { PrestadorRepositoryService } from 'src/app/shared/services/prestador-repository.service';
 
 
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   prestadores!: Prestador[];
 
 
-  constructor(private router: Router, private prestadorService: PrestadorRepositoryService) { }
+  constructor(private router: Router, private prestadorService: PrestadorRepositoryService, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.getAllPrestadores();

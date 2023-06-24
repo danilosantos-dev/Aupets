@@ -10,7 +10,9 @@
   <div class="container">
     <div class="masthead-subheading">Bem vindo ao Aupets</div>
     <div class="masthead-heading">Venha ser nosso parceiro</div>
-    <a class="btn btn-dark btn-lg text-uppercase custom-button" routerLink="/cadastro-prestador" >Eu
+    <a class="btn btn-dark btn-lg text-uppercase custom-button" *ngIf="!authService.isLogged()" routerLink="/login" >Eu
+      quero!</a>
+    <a class="btn btn-dark btn-lg text-uppercase custom-button" *ngIf="authService.isLogged()" routerLink="/cadastro-prestador" >Eu
       quero!</a>
   </div>
 </header>
