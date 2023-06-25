@@ -29,11 +29,9 @@ public class MappingProfile : Profile
 
         CreateMap<Prestador, PrestadorDto>().ReverseMap();
         CreateMap<PrestadorForCreationDto, Prestador>()
-            .ForMember(dest => dest.Imagem, 
-                map => map.MapFrom(src => src.Imagem.FileName));
+            .ForMember(dest => dest.Imagem, map => map.Ignore());
         CreateMap<PrestadorForUpdateDto, Prestador>()
-            .ForMember(dest => dest.Imagem, 
-                map => map.MapFrom(src => src.Imagem.FileName));
+            .ForMember(dest => dest.Imagem, map => map.Ignore());
 
         CreateMap<Avaliacoes, AvaliacaoDto>();
         CreateMap<AvaliacaoForCreationDto, Avaliacoes>();

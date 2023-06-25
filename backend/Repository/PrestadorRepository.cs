@@ -2,6 +2,7 @@
 using Contracts;
 using Entities;
 using Entities.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Repository;
 public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorRepository
@@ -40,9 +41,9 @@ public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorReposito
         Create(prestador);
     }
 
-    public void CreatePrestadorWithImagem(Prestador prestador, Stream imagem)
+    public void CreatePrestadorWithImagem(Prestador prestador, IFormFile imagem)
     {
-        UploadImageToBlob(prestador, imagem, false);
+        UploadImageToBlob(prestador, imagem);
         CreatePrestador(prestador);
     }
 
@@ -51,9 +52,10 @@ public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorReposito
         Update(prestador);
     }
 
-    public void UpdatePrestadorWithImagem(Prestador prestador, Stream imagem)
+    public void UpdatePrestadorWithImagem(Prestador prestador, IFormFile imagem)
     {
-        UploadImageToBlob(prestador, imagem, true);
+        DeleteImageFromBlob(prestador);
+        UploadImageToBlob(prestador, imagem);
         UpdatePrestador(prestador);
     }
     
@@ -63,27 +65,19 @@ public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorReposito
         Delete(prestador);
     }
 
-    private void UploadImageToBlob(Prestador prestador, Stream image, bool @override)
+    private void UploadImageToBlob(Prestador prestador, IFormFile image)
     {
         if (image is null)
             return;
         
         var containerClient = _blobServiceClient.GetBlobContainerClient(ContainerName);
 
-        string fileName, imageUrl;
-        if (@override)
-        {
-            fileName = prestador.Imagem;
-            imageUrl = fileName;
-        }
-        else
-        {
-            fileName = GetFileNameForPrestador(prestador);
-            imageUrl = $"{containerClient.Uri}/{fileName}";   
-        }
-        
+        var fileName = GetFileName(image);
+        var imageUrl = $"{containerClient.Uri}/{fileName}";
+            
         var blobClient = containerClient.GetBlobClient(fileName);
-        blobClient.Upload(image, @override);
+        using var imageData = image.OpenReadStream();
+        blobClient.Upload(imageData);
 
         prestador.Imagem = imageUrl;
     }
@@ -98,9 +92,9 @@ public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorReposito
         blobClient.Delete();
     }
 
-    private static string GetFileNameForPrestador(Prestador prestador)
+    private static string GetFileName(IFormFile image)
     {
-        return $"{Guid.NewGuid()}{Path.GetExtension(prestador.Imagem)}";
+        return $"{Guid.NewGuid()}{Path.GetExtension(image.FileName)}";
     }
     
 }
