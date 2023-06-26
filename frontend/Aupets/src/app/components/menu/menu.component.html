@@ -24,7 +24,9 @@
           <a class="nav-link" routerLink="/admin">Perfil</a>
         </li>
         <li class="nav-item btn btn-dark " *ngIf="authService.isLogged()">
-          <a class="nav-link" (click)="authService.LogOut()">Logout</a>
+          <a class="nav-link" (click)="authService.LogOut()">
+            Sair <i class='bx bx-log-out'></i>
+          </a>
         </li>
       </ul>
 
