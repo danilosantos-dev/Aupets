@@ -106,7 +106,7 @@
     <div class="text-center">
       <h2 class="section-heading text-uppercase">Trabalhe conosco</h2>
 
-      <a routerLink="/cadastro-prestador" class="btn btn-warning btn-lg text-white">Quero ser Parceiro!</a>
+      <a [routerLink]="authService.isLogged() ? ['/cadastro-prestador'] : ['/login']" class="btn btn-warning btn-lg text-white">Quero ser Parceiro!</a>
     </div>
   </div>
 </section>

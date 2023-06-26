@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllPrestadores();
+    window.scrollTo(0, 0);
   }
 
   private getAllPrestadores = () => {
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToPrestPage(id: number){
-      const prestUrl: string = `/prestador/${id}`
+      const prestUrl: string = `/prestador/${id}`;
       window.scrollTo(0, 0);
       this.router.navigate([prestUrl]);
   }

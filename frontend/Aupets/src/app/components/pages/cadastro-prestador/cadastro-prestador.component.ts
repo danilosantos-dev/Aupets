@@ -30,6 +30,7 @@ export class CadastroPrestadorComponent {
   ) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.companyRegisterForm = this.fb.group({
       razaoSocial: ['', Validators.required],
       nomeFantasia: ['', Validators.required],

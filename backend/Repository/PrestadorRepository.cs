@@ -61,7 +61,7 @@ public class PrestadorRepository : RepositoryBase<Prestador>, IPrestadorReposito
     
     public void DeletePrestador(Prestador prestador)
     {
-        DeleteImageFromBlob(prestador);
+       // DeleteImageFromBlob(prestador);
         Delete(prestador);
     }
 
