@@ -85,7 +85,7 @@ public class PrestadorController : ControllerBase
 
             var prestadorEntity = _mapper.Map<Prestador>(prestador);
 
-            _repository.Prestador.CreatePrestadorWithImagem(prestadorEntity, prestador.Imagem?.OpenReadStream());
+            _repository.Prestador.CreatePrestadorWithImagem(prestadorEntity, prestador.Imagem);
             _repository.Save();
 
             var usuarioId = Guid.Parse(prestador.UsuarioId);
@@ -131,7 +131,7 @@ public class PrestadorController : ControllerBase
 
             _mapper.Map(prestador, prestEntity);
 
-            _repository.Prestador.UpdatePrestadorWithImagem(prestEntity, prestador.Imagem?.OpenReadStream());
+            _repository.Prestador.UpdatePrestadorWithImagem(prestEntity, prestador.Imagem);
             _repository.Save();
 
             return NoContent();

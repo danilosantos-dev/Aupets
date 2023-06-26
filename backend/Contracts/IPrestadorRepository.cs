@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Contracts;
 public interface IPrestadorRepository : IRepositoryBase<Prestador>
@@ -7,8 +8,8 @@ public interface IPrestadorRepository : IRepositoryBase<Prestador>
     Prestador GetPrestadorById(int prestadorId);
     Prestador GetPrestadorDetailed(int prestaId);
     void CreatePrestador(Prestador prestador);
-    void CreatePrestadorWithImagem(Prestador prestador, Stream imagem);
+    void CreatePrestadorWithImagem(Prestador prestador, IFormFile imagem);
     void UpdatePrestador(Prestador prestador);
-    void UpdatePrestadorWithImagem(Prestador prestador, Stream imagem);
+    void UpdatePrestadorWithImagem(Prestador prestador, IFormFile imagem);
     void DeletePrestador(Prestador prestador);
 }
