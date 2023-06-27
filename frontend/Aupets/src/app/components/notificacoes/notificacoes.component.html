@@ -1,5 +1,5 @@
 <body>
-    
+
     <div class="sidebar">
         <div class="logo-content">
             <div class="logo">
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="list-item">
-                <a class="nav-link" routerLink="/admin/perfil" routerLinkActive="active"
+                <a class="nav-link" routerLink="/admin/perfil/{{usuarioId}}" routerLinkActive="active"
                   [routerLinkActiveOptions]="{exact: true}">
                   <i class='bx bxs-user'></i>
                     <span class="links-name">Perfil</span>
@@ -51,7 +51,7 @@
               </button>
             </div>
             <p> Você recebeu uma avaliação</p>
-          </div>          
+          </div>
     </div>
 
 </body>

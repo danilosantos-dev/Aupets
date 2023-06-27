@@ -77,6 +77,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
     transition: .5s ease;
+    cursor: pointer;
 }
 
 .active{

@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroUsuarioComponent },
   { path: 'cadastro-prestador', component: CadastroPrestadorComponent },
   { path: 'admin', loadChildren: () => import('../app/modules/admin-module/admin-module.module').then(m => m.AdminModuleModule), canActivate: [AuthGuardService] },
-  { path: 'admin/perfil', component: PerfilComponent},
+  { path: 'admin/perfil/:id', component: PerfilComponent},
   { path: 'admin/notificacoes', component: NotificacoesComponent },
   { path: 'prestador/:id', component: PrestadorComponent },
   { path: '404', component: NotFoundComponent },

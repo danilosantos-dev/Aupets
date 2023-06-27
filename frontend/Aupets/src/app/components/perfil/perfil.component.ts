@@ -2,8 +2,8 @@ import { MessagesService } from './../../shared/services/messages.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Usuario } from 'src/app/interfaces/usuario.model';
 import { UsuarioRepositoryService } from 'src/app/shared/services/usuario-repository.service';
+import { UsuarioForUpdate } from 'src/app/interfaces/usuarioForUpdate.model';
 
 
 @Component({
@@ -13,11 +13,11 @@ import { UsuarioRepositoryService } from 'src/app/shared/services/usuario-reposi
 })
 export class PerfilComponent {
   userForm!: FormGroup;
-  usuario!: Usuario;
+  usuarioId: any = localStorage.getItem('userId');
+  usuario!: UsuarioForUpdate;
 
   constructor(
     private usuarioService: UsuarioRepositoryService,
-    private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private serviceMessages: MessagesService
   ) {}
@@ -42,16 +42,17 @@ export class PerfilComponent {
   }
 
   getUsuario() {
-    const userid : string = this.activatedRoute.snapshot.params['id'];
+    const userid = localStorage.getItem('userId');
     const apiUrl: string = `api/usuario/${userid}`;
 
     this.usuarioService.getUsuarioById(apiUrl).subscribe({
-      next: (user: Usuario) => {
+      next: (user: UsuarioForUpdate) => {
         this.usuario = {
           ...user,
         };
         this.userForm.patchValue(this.usuario);
-      }
+      },
+      error: (err) => this.serviceMessages.add(err.error)
     });
   }
 }

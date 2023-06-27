@@ -6,10 +6,7 @@ import { PerfilComponent } from 'src/app/components/perfil/perfil.component';
 
 const routes: Routes = [
 
-  { path: '', component: AdminComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'perfil', component: PerfilComponent },
-  { path: 'notificacoes', component: NotificacoesComponent }
+  { path: '', component: AdminComponent }
 
 ];
 
