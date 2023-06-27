@@ -38,7 +38,7 @@ export class PerfilComponent {
       urlSite: [''],
       imagem: ['', Validators.required],
     });
-    this.getUsuario();
+    //this.getUsuario();
   }
 
   getUsuario() {
